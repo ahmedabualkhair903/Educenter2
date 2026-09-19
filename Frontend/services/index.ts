@@ -1,0 +1,15 @@
+export { studentService } from "./studentService";
+export { teacherService } from "./teacherService";
+export { groupService } from "./groupService";
+export { attendanceService } from "./attendanceService";
+export { paymentService } from "./paymentService";
+export { examService } from "./examService";
+export { lessonService } from "./lessonService";
+export { messageService } from "./messageService";
+export { whatsappAccountService } from "./whatsappAccountService";
+export { settingsService } from "./settingsService";
+export { activityService } from "./activityService";
+export { checkOutService } from "./checkOutService";
+export { studentCardService } from "./studentCardService";
+export { studentCardDesignerService } from "./studentCardDesignerService";
+export { studentCardTemplateService } from "./studentCardTemplateService";

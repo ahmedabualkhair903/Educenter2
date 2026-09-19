@@ -1,0 +1,44 @@
+import { Router } from "express";
+import authRoutes from "./authRoutes.js";
+import userRoutes from "./userRoutes.js";
+import studentRoutes from "./studentRoutes.js";
+import teacherRoutes from "./teacherRoutes.js";
+import groupRoutes from "./groupRoutes.js";
+import lessonRoutes from "./lessonRoutes.js";
+import attendanceRoutes from "./attendanceRoutes.js";
+import paymentRoutes from "./paymentRoutes.js";
+import feeRoutes from "./feeRoutes.js";
+import examRoutes from "./examRoutes.js";
+import expenseRoutes from "./expenseRoutes.js";
+import notificationRoutes from "./notificationRoutes.js";
+import settingsRoutes from "./settingsRoutes.js";
+import reportRoutes from "./reportRoutes.js";
+import parentPortalRoutes from "./parentPortalRoutes.js";
+import excelRoutes from "./excelRoutes.js";
+import auditLogRoutes from "./auditLogRoutes.js";
+import backupRoutes from "./backupRoutes.js";
+import whatsappRoutes from "./whatsappRoutes.js";
+
+const router = Router();
+
+router.use("/auth", authRoutes);
+router.use("/users", userRoutes);
+router.use("/students", studentRoutes);
+router.use("/teachers", teacherRoutes);
+router.use("/groups", groupRoutes);
+router.use("/lessons", lessonRoutes);
+router.use("/attendance", attendanceRoutes);
+router.use("/payments", paymentRoutes);
+router.use("/fees", feeRoutes);
+router.use("/exams", examRoutes);
+router.use("/expenses", expenseRoutes);
+router.use("/notifications", notificationRoutes);
+router.use("/settings", settingsRoutes);
+router.use("/reports", reportRoutes);
+router.use("/parent-portal", parentPortalRoutes);
+router.use("/excel", excelRoutes);
+router.use("/audit-logs", auditLogRoutes);
+router.use("/backups", backupRoutes);
+router.use("/whatsapp", whatsappRoutes);
+
+export default router;
