@@ -495,24 +495,24 @@ export default function GroupsPage() {
   return (
     <main
       dir="rtl"
-      className="min-h-screen bg-slate-50"
+      className="min-h-screen bg-[#F3F6FC]"
     >
-      <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
-        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mx-auto max-w-[1600px] px-4 py-6 sm:px-6 sm:py-8 lg:px-10 lg:py-10">
+        <div className="mb-8 flex flex-col gap-5 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400">
+            <div className="mb-3 flex items-center gap-2 text-xs font-medium text-slate-400">
               <span>الرئيسية</span>
               <span>/</span>
-              <span className="text-teal-600">
+              <span className="font-semibold text-[#1748EF]">
                 المجموعات
               </span>
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-2xl font-bold tracking-tight text-[#10275B] sm:text-3xl">
               المجموعات والحصص
             </h1>
 
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-2 text-sm leading-6 text-slate-500">
               إدارة المجموعات الدراسية ومواعيد الحصص والمدرسين.
             </p>
           </div>
@@ -520,14 +520,14 @@ export default function GroupsPage() {
           <button
             type="button"
             onClick={openAddModal}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-500/20 active:scale-[0.98]"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-semibold text-white shadow-[0_8px_20px_-8px_rgba(23,72,239,0.55)] transition hover:bg-[#123BC7] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1748EF]/20 active:scale-[0.98] sm:h-12 sm:w-auto"
           >
             <FiPlus size={17} />
             إضافة مجموعة
           </button>
         </div>
 
-        <section className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="mb-7 grid gap-4 sm:grid-cols-2 sm:gap-5 lg:grid-cols-4">
           <StatCard
             icon={<FiBookOpen size={19} />}
             label="إجمالي المجموعات"
@@ -555,8 +555,8 @@ export default function GroupsPage() {
           />
         </section>
 
-        <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <div className="border-b border-slate-100 p-4 sm:p-5">
+        <section className="overflow-hidden rounded-2xl border border-slate-200/80 bg-white shadow-[0_12px_36px_-24px_rgba(16,39,91,0.28)]">
+          <div className="border-b border-slate-100 p-4 sm:p-6">
             <div className="flex flex-col gap-3 lg:flex-row">
               <div className="relative flex-1">
                 <FiSearch
@@ -573,7 +573,7 @@ export default function GroupsPage() {
                   }}
                   placeholder="ابحث باسم المجموعة أو المادة أو المدرس..."
                   aria-label="البحث في المجموعات"
-                  className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+                  className="h-11 w-full rounded-xl border border-slate-200 bg-[#F7F9FD] pr-10 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
                 />
               </div>
 
@@ -628,7 +628,7 @@ export default function GroupsPage() {
                   setSubjectFilter("الكل");
                   setCurrentPage(1);
                 }}
-                className="text-xs font-semibold text-teal-600 transition hover:text-teal-700"
+                className="rounded px-1 text-xs font-semibold text-[#1748EF] transition hover:text-[#123BC7] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1748EF]/15"
               >
                 إعادة ضبط الفلاتر
               </button>
@@ -638,7 +638,7 @@ export default function GroupsPage() {
           <div className="overflow-x-auto">
             <table className="w-full min-w-[1050px] text-right">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50/70">
+                <tr className="border-b border-slate-100 bg-[#F6F8FC]">
                   <TableHeader>المجموعة</TableHeader>
                   <TableHeader>المادة</TableHeader>
                   <TableHeader>المدرس</TableHeader>
@@ -679,11 +679,11 @@ export default function GroupsPage() {
                   return (
                     <tr
                       key={group.id}
-                      className="border-b border-slate-100 transition last:border-0 hover:bg-slate-50/70"
+                      className="border-b border-slate-100/80 transition-colors last:border-0 hover:bg-[#F7F9FF]"
                     >
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
                             <FiBookOpen size={16} />
                           </div>
 
@@ -743,7 +743,7 @@ export default function GroupsPage() {
                               className={`h-full rounded-full ${
                                 occupancy >= 90
                                   ? "bg-amber-400"
-                                  : "bg-teal-500"
+                                  : "bg-[#1748EF]"
                               }`}
                               style={{
                                 width: `${Math.min(
@@ -797,7 +797,7 @@ export default function GroupsPage() {
                                   : group.id,
                               )
                             }
-                            className={`flex h-8 w-8 items-center justify-center rounded-md transition focus:outline-none focus:ring-2 focus:ring-slate-300 ${
+                            className={`flex h-9 w-9 items-center justify-center rounded-lg transition focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1748EF]/30 ${
                               isMenuOpen
                                 ? "bg-slate-100 text-slate-700"
                                 : "text-slate-400 hover:bg-slate-100 hover:text-slate-700"
@@ -889,7 +889,7 @@ export default function GroupsPage() {
                     setSubjectFilter("الكل");
                     setCurrentPage(1);
                   }}
-                  className="mt-4 text-xs font-semibold text-teal-600 hover:text-teal-700"
+                  className="mt-4 rounded px-2 py-1 text-xs font-semibold text-[#1748EF] hover:text-[#123BC7] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1748EF]/15"
                 >
                   إعادة ضبط البحث
                 </button>
@@ -897,7 +897,7 @@ export default function GroupsPage() {
             )}
           </div>
 
-          <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-col gap-3 border-t border-slate-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <p className="text-xs text-slate-400">
               {filteredGroups.length > 0 ? (
                 <>
@@ -928,7 +928,7 @@ export default function GroupsPage() {
                     Math.max(page - 1, 1),
                   )
                 }
-                className="flex h-8 items-center gap-1 rounded-md border border-slate-200 px-2.5 text-xs font-medium text-slate-500 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex h-9 items-center gap-1 rounded-lg border border-slate-200 px-2.5 text-xs font-medium text-slate-600 transition hover:border-[#C8D5FF] hover:bg-[#F7F9FF] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1748EF]/15 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 <FiChevronRight size={14} />
                 السابق
@@ -944,10 +944,15 @@ export default function GroupsPage() {
                   onClick={() =>
                     setCurrentPage(page)
                   }
+                  aria-current={
+                    safeCurrentPage === page
+                      ? "page"
+                      : undefined
+                  }
                   className={`flex h-8 min-w-8 items-center justify-center rounded-md px-2 text-xs font-semibold transition ${
-                    currentPage === page
-                      ? "bg-teal-600 text-white"
-                      : "border border-slate-200 text-slate-500 hover:bg-slate-50"
+                    safeCurrentPage === page
+                      ? "bg-[#1748EF] text-white shadow-sm"
+                      : "border border-slate-200 text-slate-500 hover:border-[#C8D5FF] hover:bg-[#F7F9FF]"
                   }`}
                 >
                   {page}
@@ -962,7 +967,7 @@ export default function GroupsPage() {
                     Math.min(page + 1, totalPages),
                   )
                 }
-                className="flex h-8 items-center gap-1 rounded-md border border-slate-200 px-2.5 text-xs font-medium text-slate-500 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
+                className="flex h-9 items-center gap-1 rounded-lg border border-slate-200 px-2.5 text-xs font-medium text-slate-600 transition hover:border-[#C8D5FF] hover:bg-[#F7F9FF] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#1748EF]/15 disabled:cursor-not-allowed disabled:opacity-40"
               >
                 التالي
                 <FiChevronLeft size={14} />
@@ -1021,7 +1026,7 @@ function TableHeader({
   children: React.ReactNode;
 }) {
   return (
-    <th className="px-5 py-3 text-xs font-semibold text-slate-500">
+    <th className="px-5 py-3.5 text-xs font-semibold text-[#52627E]">
       {children}
     </th>
   );
@@ -1040,7 +1045,7 @@ function ActionButton({
     <button
       type="button"
       onClick={onClick}
-      className="flex h-8 w-8 items-center justify-center rounded-md text-slate-400 transition hover:bg-teal-50 hover:text-teal-600 focus:outline-none focus:ring-2 focus:ring-teal-500/20"
+      className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition hover:bg-[#EEF3FF] hover:text-[#1748EF] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1748EF]/30"
       aria-label={label}
     >
       {children}
@@ -1066,8 +1071,8 @@ function MenuButton({
       className={`flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-right text-xs font-medium transition ${
         danger
           ? "text-red-600 hover:bg-red-50"
-          : "text-slate-600 hover:bg-slate-50 hover:text-slate-900"
-      }`}
+        : "text-slate-600 hover:bg-[#F3F6FC] hover:text-[#10275B]"
+      } focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1748EF]/30`}
     >
       {icon}
       {children}
@@ -1079,7 +1084,7 @@ function StatCard({
   icon,
   label,
   value,
-  valueClass = "text-slate-900",
+  valueClass = "text-[#10275B]",
 }: {
   icon: React.ReactNode;
   label: string;
@@ -1087,21 +1092,21 @@ function StatCard({
   valueClass?: string;
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+    <div className="rounded-2xl border border-slate-200/80 bg-white p-5 shadow-[0_8px_28px_-22px_rgba(16,39,91,0.35)] transition-shadow hover:shadow-[0_12px_32px_-20px_rgba(16,39,91,0.32)] sm:p-6">
       <div className="flex items-center justify-between">
         <div>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm font-medium text-slate-500">
             {label}
           </p>
 
           <p
-            className={`mt-1 text-2xl font-bold ${valueClass}`}
+            className={`mt-2 text-2xl font-bold tracking-tight ${valueClass}`}
           >
             {value}
           </p>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
           {icon}
         </div>
       </div>
@@ -1128,7 +1133,7 @@ function Select({
           onChange(event.target.value)
         }
         aria-label={placeholder}
-        className="h-10 min-w-36 appearance-none rounded-lg border border-slate-200 bg-white px-3 pl-9 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+        className="h-11 min-w-36 appearance-none rounded-xl border border-slate-200 bg-white px-3 pl-9 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
       >
         {options.map((option) => (
           <option
@@ -1401,7 +1406,7 @@ function GroupModal({
 
   return (
     <div
-      className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/40 p-4 backdrop-blur-[2px]"
+      className="fixed inset-0 z-[100] flex items-center justify-center bg-[#10275B]/45 p-4 backdrop-blur-[2px]"
       onMouseDown={(event) => {
         if (
           event.target ===
@@ -1569,7 +1574,7 @@ function GroupModal({
               </select>
 
               {teacher === NEW_TEACHER_VALUE && (
-                <div className="mt-2 space-y-2 rounded-xl border border-teal-100 bg-teal-50/50 p-3">
+                <div className="mt-2 space-y-2 rounded-xl border border-[#E1E9FF] bg-[#EEF3FF]/50 p-3">
                   <input
                     type="text"
                     value={newTeacherName}
@@ -1658,7 +1663,7 @@ function GroupModal({
                 {WEEKDAYS.map((day) => (
                   <label
                     key={day}
-                    className="flex cursor-pointer select-none items-center gap-2 rounded-lg border border-slate-200 px-2 py-2 text-xs font-medium text-slate-600 transition hover:border-teal-300 hover:bg-teal-50"
+                    className="flex cursor-pointer select-none items-center gap-2 rounded-lg border border-slate-200 px-2 py-2 text-xs font-medium text-slate-600 transition hover:border-[#A8B9FF] hover:bg-[#EEF3FF]"
                   >
                     <input
                       type="checkbox"
@@ -1671,7 +1676,7 @@ function GroupModal({
                         );
                         if (error) setError("");
                       }}
-                      className="h-4 w-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500"
+                      className="h-4 w-4 rounded border-slate-300 text-[#1748EF] focus:ring-[#1748EF]"
                     />
 
                     {day}
@@ -1741,7 +1746,7 @@ function GroupModal({
             type="button"
             onClick={() => void submit()}
             disabled={saving}
-            className="h-10 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-500/20 disabled:cursor-not-allowed disabled:opacity-60"
+            className="h-10 rounded-lg bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#123BC7] focus:outline-none focus:ring-4 focus:ring-[#1748EF]/20 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {saving
               ? "جاري الحفظ..."
@@ -1786,7 +1791,7 @@ function GroupDetailsModal({
 
   return (
     <div
-      className="fixed inset-0 z-[90] flex items-center justify-center bg-slate-950/40 p-4 backdrop-blur-[2px]"
+      className="fixed inset-0 z-[90] flex items-center justify-center bg-[#10275B]/45 p-4 backdrop-blur-[2px]"
       onMouseDown={(event) => {
         if (
           event.target ===
@@ -1804,7 +1809,7 @@ function GroupDetailsModal({
       >
         <div className="flex items-start justify-between border-b border-slate-100 px-5 py-5 sm:px-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
               <FiBookOpen size={19} />
             </div>
 
@@ -1911,7 +1916,7 @@ function GroupDetailsModal({
                   className={`text-sm font-semibold ${
                     occupancy >= 90
                       ? "text-amber-600"
-                      : "text-teal-600"
+                      : "text-[#1748EF]"
                   }`}
                 >
                   {occupancy}%
@@ -1923,7 +1928,7 @@ function GroupDetailsModal({
                   className={`h-full rounded-full ${
                     occupancy >= 90
                       ? "bg-amber-400"
-                      : "bg-teal-500"
+                      : "bg-[#1748EF]"
                   }`}
                   style={{
                     width: `${Math.min(
@@ -1949,8 +1954,8 @@ function GroupDetailsModal({
               موعد المجموعة
             </h3>
 
-            <div className="mt-4 flex items-center gap-3 rounded-xl border border-teal-100 bg-teal-50/50 p-4">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-teal-600 shadow-sm">
+            <div className="mt-4 flex items-center gap-3 rounded-xl border border-[#E1E9FF] bg-[#EEF3FF]/50 p-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white text-[#1748EF] shadow-sm">
                 <FiCalendar size={17} />
               </div>
 
@@ -1979,7 +1984,7 @@ function GroupDetailsModal({
           <button
             type="button"
             onClick={() => onEdit(group)}
-            className="inline-flex h-10 items-center gap-2 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 focus:outline-none focus:ring-4 focus:ring-teal-500/20"
+            className="inline-flex h-10 items-center gap-2 rounded-lg bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#123BC7] focus:outline-none focus:ring-4 focus:ring-[#1748EF]/20"
           >
             <FiEdit2 size={15} />
             تعديل المجموعة
@@ -2007,7 +2012,7 @@ function DeleteGroupModal({
 
   return (
     <div
-      className="fixed inset-0 z-[120] flex items-center justify-center bg-slate-950/40 p-4 backdrop-blur-[2px]"
+      className="fixed inset-0 z-[120] flex items-center justify-center bg-[#10275B]/45 p-4 backdrop-blur-[2px]"
       onMouseDown={(event) => {
         if (
           event.target ===

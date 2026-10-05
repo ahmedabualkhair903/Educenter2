@@ -1,578 +1,290 @@
-
 "use client";
 
-import {
-  useEffect,
-  useMemo,
-  useState,
-} from "react";
-
+import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
-
+import { useState } from "react";
 import {
   FiActivity,
   FiArrowLeft,
   FiBookOpen,
   FiCalendar,
-  FiCheckCircle,
-  FiDollarSign,
+  FiCheck,
+  FiChevronLeft,
+  FiClock,
+  FiMenu,
   FiSearch,
   FiUsers,
-  FiUserPlus,
   FiX,
 } from "react-icons/fi";
+import styles from "./Homepage.module.css";
 
-import StudentModal, {
-  type StudentFormData,
-} from "@/components/students/StudentModal";
-
-import { studentService } from "@/services";
-import type { Student } from "@/types";
-
-const quickActions = [
-  {
-    label: "الطلاب",
-    description: "إدارة بيانات الطلاب",
-    href: "/students",
-    icon: FiUsers,
-  },
-  {
-    label: "الحضور",
-    description: "متابعة حضور الطلاب",
-    href: "/attendance",
-    icon: FiCalendar,
-  },
-  {
-    label: "المجموعات",
-    description: "إدارة المجموعات",
-    href: "/groups",
-    icon: FiBookOpen,
-  },
-  {
-    label: "المدفوعات",
-    description: "متابعة المصروفات",
-    href: "/payments",
-    icon: FiDollarSign,
-  },
+const stats = [
+  { value: "+5,000", label: "طالب وطالبة" },
+  { value: "+120", label: "مدرس ومعلم" },
+  { value: "+50", label: "مركز تعليمي" },
 ];
 
-export default function Home() {
-  const router = useRouter();
+const students = [
+  { name: "أحمد محمد علي", detail: "الصف الثالث الثانوي", score: "96%", tone: "blue" },
+  { name: "سارة محمود حسن", detail: "الصف الثاني الثانوي", score: "92%", tone: "purple" },
+  { name: "عمر خالد إبراهيم", detail: "الصف الأول الثانوي", score: "88%", tone: "orange" },
+];
 
-  const [students, setStudents] = useState<Student[]>([]);
-  const [search, setSearch] = useState("");
-  const [debouncedSearch, setDebouncedSearch] =
-    useState("");
-  const [showStudentModal, setShowStudentModal] =
-    useState(false);
-  const [successStudent, setSuccessStudent] =
-    useState<Student | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [searchOpen, setSearchOpen] = useState(false);
+const attendance = [
+  ["ح", "ن", "ث", "ر", "خ", "ج", "س"],
+  ["", "", "", "١", "٢", "٣", "٤"],
+  ["٥", "٦", "٧", "٨", "٩", "١٠", "١١"],
+  ["١٢", "١٣", "١٤", "١٥", "١٦", "١٧", "١٨"],
+  ["١٩", "٢٠", "٢١", "٢٢", "٢٣", "٢٤", "٢٥"],
+];
 
-  useEffect(() => {
-    let mounted = true;
+function Brand() {
+  return (
+    <Link href="/" className={styles.brand} aria-label="EduCenter - الرئيسية">
+      <span className={styles.brandMark}>
+        <FiBookOpen aria-hidden="true" />
+      </span>
+      <span className={styles.brandName}>
+        EduCenter
+        <small>منصتك التعليمية</small>
+      </span>
+    </Link>
+  );
+}
 
-    const loadStudents = async () => {
-      try {
-        const data = await studentService.list();
+function DashboardPreview() {
+  return (
+    <div className={styles.dashboard} dir="rtl" aria-label="معاينة لوحة تحكم EduCenter">
+      <aside className={styles.dashboardSidebar}>
+        <Brand />
+        <div className={styles.sidebarLinks}>
+          <span className={styles.sidebarLinkActive}><FiActivity /> لوحة التحكم</span>
+          <span className={styles.sidebarLink}><FiUsers /> الطلاب</span>
+          <span className={styles.sidebarLink}><FiBookOpen /> المجموعات</span>
+          <span className={styles.sidebarLink}><FiCalendar /> الحضور والغياب</span>
+        </div>
+        <span className={styles.sidebarFooter}>مساحتك التعليمية، في مكان واحد</span>
+      </aside>
 
-        if (mounted) {
-          setStudents(data);
-        }
-      } finally {
-        if (mounted) {
-          setLoading(false);
-        }
-      }
-    };
+      <div className={styles.dashboardContent}>
+        <div className={styles.dashboardTopbar}>
+          <div>
+            <p className={styles.dashboardEyebrow}>الأحد، ١٢ أكتوبر ٢٠٢٥</p>
+            <h3>مرحباً بك في EduCenter</h3>
+          </div>
+          <div className={styles.searchBox}><FiSearch /> ابحث عن طالب أو مجموعة</div>
+        </div>
 
-    void loadStudents();
+        <div className={styles.metricGrid}>
+          <article className={styles.metricCard}>
+            <span className={styles.metricIcon}><FiUsers /></span>
+            <span className={styles.metricLabel}>إجمالي الطلاب</span>
+            <strong>1,248</strong>
+            <small>طالب مسجل</small>
+          </article>
+          <article className={styles.metricCard}>
+            <span className={`${styles.metricIcon} ${styles.metricPurple}`}><FiCalendar /></span>
+            <span className={styles.metricLabel}>الحضور اليوم</span>
+            <strong>92%</strong>
+            <small>مقارنة بالأسبوع الماضي</small>
+          </article>
+          <article className={styles.metricCard}>
+            <span className={`${styles.metricIcon} ${styles.metricOrange}`}><FiBookOpen /></span>
+            <span className={styles.metricLabel}>الحصص النشطة</span>
+            <strong>18</strong>
+            <small>حصة هذا الأسبوع</small>
+          </article>
+        </div>
 
-    return () => {
-      mounted = false;
-    };
-  }, []);
+        <div className={styles.dashboardLower}>
+          <article className={styles.panel}>
+            <div className={styles.panelHeading}>
+              <div><h4>نظرة على الأداء</h4><p>متابعة تقدم الطلاب خلال الشهر</p></div>
+              <button type="button" className={styles.periodButton}>هذا الشهر <FiChevronLeft /></button>
+            </div>
+            <div className={styles.chartLegend}><span /> درجات الطلاب</div>
+            <div className={styles.chart}>
+              <div className={styles.chartGrid}>
+                <span>١٠٠</span><span>٧٥</span><span>٥٠</span><span>٢٥</span>
+              </div>
+              <svg viewBox="0 0 520 130" role="img" aria-label="رسم بياني يوضح تحسن درجات الطلاب">
+                <defs>
+                  <linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1">
+                    <stop offset="0%" stopColor="#3262f5" stopOpacity=".2" />
+                    <stop offset="100%" stopColor="#3262f5" stopOpacity="0" />
+                  </linearGradient>
+                </defs>
+                <path d="M0 103 C35 98 43 85 76 89 S115 70 147 78 S191 64 223 68 S263 44 293 58 S336 51 365 45 S403 48 433 29 S482 39 520 13 L520 130 L0 130Z" fill="url(#chartFill)" />
+                <path d="M0 103 C35 98 43 85 76 89 S115 70 147 78 S191 64 223 68 S263 44 293 58 S336 51 365 45 S403 48 433 29 S482 39 520 13" fill="none" stroke="#3262f5" strokeWidth="3" strokeLinecap="round" />
+                <circle cx="433" cy="29" r="5" fill="#fff" stroke="#3262f5" strokeWidth="3" />
+              </svg>
+              <div className={styles.chartMonths}><span>الأسبوع الأول</span><span>الأسبوع الثاني</span><span>الأسبوع الثالث</span><span>الأسبوع الرابع</span></div>
+            </div>
+          </article>
 
-  const filteredStudents = useMemo(() => {
-    const normalizedSearch = debouncedSearch
-      .trim()
-      .toLowerCase();
+          <article className={styles.panel}>
+            <div className={styles.panelHeading}>
+              <div><h4>الطلاب المتفوقون</h4><p>أعلى النتائج هذا الشهر</p></div>
+              <Link href="/students" className={styles.panelLink}>عرض الكل <FiChevronLeft /></Link>
+            </div>
+            <div className={styles.studentList}>
+              {students.map((student, index) => (
+                <div className={styles.studentRow} key={student.name}>
+                  <span className={`${styles.avatar} ${styles[`avatar${index + 1}`]}`} aria-hidden="true">
+                    {student.name.charAt(0)}
+                  </span>
+                  <span className={styles.studentInfo}><strong>{student.name}</strong><small>{student.detail}</small></span>
+                  <span className={`${styles.studentScore} ${styles[student.tone]}`}>{student.score}</span>
+                </div>
+              ))}
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  );
+}
 
-    if (!normalizedSearch) {
-      return [];
-    }
+function AttendancePreview() {
+  return (
+    <div className={styles.attendancePreview} dir="rtl" aria-label="معاينة سجل الحضور">
+      <div className={styles.attendanceHeader}>
+        <span className={styles.attendanceIcon}><FiCalendar /></span>
+        <div><p>الحضور والغياب</p><small>متابعة يومية بكل سهولة</small></div>
+        <span className={styles.attendanceDate}>أكتوبر ٢٠٢٥ <FiChevronLeft /></span>
+      </div>
+      <div className={styles.attendanceBody}>
+        <div className={styles.calendar}>
+          {attendance.flatMap((week, row) => week.map((day, column) => (
+            <span
+              className={[
+                styles.calendarDay,
+                row === 0 ? styles.calendarWeekday : "",
+                (row === 2 && column === 3) || (row === 3 && column === 1) ? styles.calendarPresent : "",
+                row === 3 && column === 4 ? styles.calendarSelected : "",
+                row === 4 && column === 5 ? styles.calendarAbsent : "",
+              ].filter(Boolean).join(" ")}
+              key={`${row}-${column}`}
+            >
+              {day}
+            </span>
+          )))}
+        </div>
+        <div className={styles.attendanceSummary}>
+          <div className={styles.progressRing}><span>٩٢٪</span></div>
+          <strong>نسبة الحضور</strong>
+          <span className={styles.attendanceTrend}><FiCheck /> أعلى من الشهر الماضي</span>
+          <div className={styles.attendanceStats}><span>حاضر <b>١١٥</b></span><span>غائب <b>١٠</b></span></div>
+        </div>
+      </div>
+      <div className={styles.attendanceFooter}><FiClock /> آخر تحديث اليوم، ٩:٤٥ صباحاً</div>
+    </div>
+  );
+}
 
-    return students
-      .filter((student) => {
-        return [
-          student.name,
-          student.studentId,
-          student.phone,
-          student.guardianName,
-          student.guardianPhone,
-        ].some((value) =>
-          value
-            ?.toLowerCase()
-            .includes(normalizedSearch),
-        );
-      })
-      .slice(0, 6);
-  }, [debouncedSearch, students]);
+export default function HomePage() {
+  const [mobileOpen, setMobileOpen] = useState(false);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setDebouncedSearch(search);
-    }, 250);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [search]);
-
-  const handleCreateStudent = async (
-    form: StudentFormData,
-  ) => {
-    const totalRequired = Math.max(
-      Number(form.totalRequired ?? 0),
-      0,
-    );
-
-    /*
-     * إنشاء ذري واحد في الـ Backend: الطالب + الفاتورة +
-     * الدفعة الأولى بطريقة الدفع المختارة — بلا طلبات منفصلة.
-     */
-    const createdStudent =
-      await studentService.create({
-        // studentId auto-generated by backend (STU-YYYY-XXXX) — never sent manually
-        name: form.name.trim(),
-        phone: form.phone?.trim() || null,
-        guardianName:
-          form.guardianName.trim(),
-        guardianPhone:
-          form.guardianPhone.trim(),
-        grade: form.grade,
-        groupId:
-          form.groupId?.trim() || null,
-        address:
-          form.address?.trim() || null,
-        status: form.status,
-        notes:
-          form.notes?.trim() || null,
-        customFields:
-          form.customFields ?? [],
-        finance:
-          totalRequired > 0
-            ? {
-                totalRequired,
-                initialPayment: Math.min(
-                  Math.max(
-                    Number(
-                      form.initialPayment ?? 0,
-                    ),
-                    0,
-                  ),
-                  totalRequired,
-                ),
-                paymentMethod:
-                  form.paymentMethod ?? "cash",
-              }
-            : undefined,
-      } as any);
-
-    setStudents((current) => [
-      createdStudent,
-      ...current,
-    ]);
-
-    setSuccessStudent(createdStudent);
-
-    setShowStudentModal(false);
-    setSearch("");
-  };
-
-  const handleSearchSelect = (
-    student: Student,
-  ) => {
-    router.push(
-      `/students/${encodeURIComponent(
-        student.id,
-      )}`,
-    );
-  };
-
-  const closeSuccess = () => {
-    setSuccessStudent(null);
-  };
+  const closeMobileMenu = () => setMobileOpen(false);
 
   return (
-    <main
-      dir="rtl"
-      className="min-h-screen bg-slate-50"
-    >
-      <div className="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
-        <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
-          <div className="relative px-5 py-7 sm:px-8 sm:py-9 lg:px-10">
-            <div className="absolute -left-24 -top-24 h-64 w-64 rounded-full bg-teal-50 blur-3xl" />
-            <div className="absolute -bottom-32 right-1/3 h-64 w-64 rounded-full bg-sky-50 blur-3xl" />
-
-            <div className="relative">
-              <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
-                <div>
-                  <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-teal-50 text-teal-600">
-                    <FiUserPlus size={21} />
-                  </div>
-
-                  <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
-                    تسجيل طالب جديد
-                  </h1>
-
-                  <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
-                    ابدأ تسجيل الطالب من هنا، وأضف بياناته
-                    الأساسية والمجموعة والمصروفات والدفعة الأولى
-                    في خطوة واحدة.
-                  </p>
-                </div>
-
-                <button
-                  type="button"
-                  onClick={() =>
-                    setShowStudentModal(true)
-                  }
-                  className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-teal-600 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 active:scale-[0.98]"
-                >
-                  <FiUserPlus size={17} />
-                  تسجيل طالب جديد
-                </button>
-              </div>
-
-              <div className="mt-8 max-w-3xl">
-                <div className="mb-2 flex items-center justify-between">
-                  <label
-                    htmlFor="home-student-search"
-                    className="text-xs font-semibold text-slate-600"
-                  >
-                    البحث السريع عن طالب
-                  </label>
-
-                  {loading && (
-                    <span className="text-[11px] text-slate-400">
-                      جاري التحميل...
-                    </span>
-                  )}
-                </div>
-
-                <div className="relative">
-                  <FiSearch
-                    size={18}
-                    className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-slate-400"
-                  />
-
-                  <input
-                    id="home-student-search"
-                    value={search}
-                    onFocus={() =>
-                      setSearchOpen(true)
-                    }
-                    onChange={(event) => {
-                      setSearch(
-                        event.target.value,
-                      );
-                      setSearchOpen(true);
-                    }}
-                    placeholder="ابحث بالاسم أو رقم الطالب أو الهاتف..."
-                    className="h-12 w-full rounded-xl border border-slate-200 bg-slate-50 pr-11 pl-11 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
-                  />
-
-                  {search && (
-                    <button
-                      type="button"
-                      onClick={() => {
-                        setSearch("");
-                        setSearchOpen(false);
-                      }}
-                      aria-label="مسح البحث"
-                      className="absolute left-3 top-1/2 flex h-7 w-7 -translate-y-1/2 items-center justify-center rounded-md text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
-                    >
-                      <FiX size={15} />
-                    </button>
-                  )}
-
-                  {searchOpen &&
-                    search.trim() && (
-                      <div className="absolute right-0 top-[calc(100%+8px)] z-20 w-full overflow-hidden rounded-xl border border-slate-200 bg-white shadow-xl">
-                        {filteredStudents.length ===
-                        0 ? (
-                          <div className="px-4 py-5 text-center">
-                            <p className="text-sm font-medium text-slate-600">
-                              لا توجد نتائج مطابقة
-                            </p>
-
-                            <p className="mt-1 text-xs text-slate-400">
-                              يمكنك تسجيل الطالب كطالب جديد.
-                            </p>
-
-                            <button
-                              type="button"
-                              onClick={() => {
-                                setSearchOpen(
-                                  false,
-                                );
-                                setShowStudentModal(
-                                  true,
-                                );
-                              }}
-                              className="mt-4 inline-flex h-9 items-center gap-1.5 rounded-lg bg-teal-600 px-3 text-xs font-semibold text-white transition hover:bg-teal-700"
-                            >
-                              <FiUserPlus
-                                size={13}
-                              />
-                              تسجيل طالب جديد
-                            </button>
-                          </div>
-                        ) : (
-                          <div className="divide-y divide-slate-100">
-                            {filteredStudents.map(
-                              (student) => (
-                                <button
-                                  key={student.id}
-                                  type="button"
-                                  onClick={() =>
-                                    handleSearchSelect(
-                                      student,
-                                    )
-                                  }
-                                  className="flex w-full items-center justify-between gap-4 px-4 py-3 text-right transition hover:bg-slate-50"
-                                >
-                                  <div className="min-w-0">
-                                    <p className="truncate text-sm font-semibold text-slate-800">
-                                      {student.name}
-                                    </p>
-
-                                    <p className="mt-1 text-xs text-slate-400">
-                                      {student.studentId}
-                                      {" • "}
-                                      {student.phone ||
-                                        "بدون هاتف"}
-                                    </p>
-                                  </div>
-
-                                  <FiArrowLeft
-                                    size={16}
-                                    className="shrink-0 text-slate-300"
-                                  />
-                                </button>
-                              ),
-                            )}
-                          </div>
-                        )}
-                      </div>
-                    )}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="mt-6">
-          <div className="mb-4">
-            <h2 className="text-base font-bold text-slate-900">
-              الإجراءات السريعة
-            </h2>
-
-            <p className="mt-1 text-xs text-slate-400">
-              الوصول السريع لأكثر المهام استخدامًا.
-            </p>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {quickActions.map((action) => {
-              const Icon = action.icon;
-
-              return (
-                <Link
-                  key={action.href}
-                  href={action.href}
-                  className="group rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-teal-200 hover:shadow-md"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-slate-500 transition group-hover:bg-teal-50 group-hover:text-teal-600">
-                      <Icon size={18} />
-                    </div>
-
-                    <FiArrowLeft
-                      size={16}
-                      className="text-slate-300 transition group-hover:-translate-x-1 group-hover:text-teal-500"
-                    />
-                  </div>
-
-                  <h3 className="mt-4 text-sm font-bold text-slate-800">
-                    {action.label}
-                  </h3>
-
-                  <p className="mt-1 text-xs text-slate-400">
-                    {action.description}
-                  </p>
-                </Link>
-              );
-            })}
-          </div>
-        </section>
-
-        <section className="mt-6 grid gap-4 lg:grid-cols-2">
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                <FiActivity size={18} />
-              </div>
-
-              <div>
-                <h2 className="text-sm font-bold text-slate-800">
-                  تشغيل سريع
-                </h2>
-
-                <p className="mt-1 text-xs leading-5 text-slate-400">
-                  استخدم البحث السريع للوصول إلى الطالب،
-                  أو ابدأ تسجيل طالب جديد مباشرة من الصفحة
-                  الرئيسية.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-            <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-amber-50 text-amber-600">
-                <FiDollarSign size={18} />
-              </div>
-
-              <div>
-                <h2 className="text-sm font-bold text-slate-800">
-                  المصروفات عند التسجيل
-                </h2>
-
-                <p className="mt-1 text-xs leading-5 text-slate-400">
-                  يمكنك تسجيل إجمالي المطلوب والدفعة الأولى
-                  أثناء إضافة الطالب، وسيتم احتساب المتبقي
-                  تلقائيًا.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
-
-      <StudentModal
-        open={showStudentModal}
-        onClose={() =>
-          setShowStudentModal(false)
-        }
-        onSubmit={handleCreateStudent}
-        mode="add"
-        showFinancialFields
-      />
-
-      {successStudent && (
-        <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/40 p-4 backdrop-blur-[2px]">
-          <div
-            role="dialog"
-            aria-modal="true"
-            aria-labelledby="student-success-title"
-            className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-6 shadow-2xl"
+    <main className={styles.home} dir="rtl">
+      <header className={styles.header}>
+        <div className={styles.headerInner}>
+          <Brand />
+          <nav className={styles.desktopNav} aria-label="التنقل الرئيسي">
+            <a className={styles.activeNav} href="#home">الرئيسية</a>
+            <a href="#platform">المنصة</a>
+            <a href="#students">المميزات</a>
+            <a href="#contact">تواصل معنا</a>
+          </nav>
+          <Link href="/login" className={styles.loginButton}>تسجيل الدخول <FiArrowLeft /></Link>
+          <button
+            type="button"
+            className={styles.menuButton}
+            onClick={() => setMobileOpen((open) => !open)}
+            aria-label={mobileOpen ? "إغلاق القائمة" : "فتح القائمة"}
+            aria-expanded={mobileOpen}
           >
-            <div className="flex items-start justify-between gap-4">
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
-                  <FiCheckCircle size={22} />
-                </div>
+            {mobileOpen ? <FiX /> : <FiMenu />}
+          </button>
+        </div>
+        {mobileOpen && (
+          <nav className={styles.mobileNav} aria-label="التنقل الرئيسي">
+            <a href="#home" onClick={closeMobileMenu}>الرئيسية</a>
+            <a href="#platform" onClick={closeMobileMenu}>المنصة</a>
+            <a href="#students" onClick={closeMobileMenu}>المميزات</a>
+            <a href="#contact" onClick={closeMobileMenu}>تواصل معنا</a>
+            <Link href="/login" onClick={closeMobileMenu}>تسجيل الدخول</Link>
+          </nav>
+        )}
+      </header>
 
-                <div>
-                  <h2
-                    id="student-success-title"
-                    className="text-base font-bold text-slate-900"
-                  >
-                    تم تسجيل الطالب بنجاح
-                  </h2>
-
-                  <p className="mt-1 text-xs text-slate-400">
-                    تم حفظ بيانات الطالب والدفعة الأولى إن
-                    وُجدت.
-                  </p>
-                </div>
-              </div>
-
-              <button
-                type="button"
-                onClick={closeSuccess}
-                aria-label="إغلاق"
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
-              >
-                <FiX size={17} />
-              </button>
+      <section className={styles.hero} id="home">
+        <div className={styles.heroInner}>
+          <div className={styles.heroCopy}>
+            <span className={styles.eyebrow}><span /> كل ما يحتاجه مركزك، في منصة واحدة</span>
+            <h1>مستقبل تعليمي<br /><span>أكثر إشراقاً</span></h1>
+            <p className={styles.heroDescription}>
+              نظّم فصولك، وتابع طلابك، واصنع تجربة تعليمية أفضل — كل ذلك بسهولة، من مكان واحد.
+            </p>
+            <div className={styles.heroActions}>
+              <Link href="/register" className={styles.primaryButton}>ابدأ الآن <FiArrowLeft /></Link>
+              <a href="#platform" className={styles.secondaryButton}><FiBookOpen /> تعرّف على المنصة</a>
             </div>
-
-            <div className="mt-5 rounded-xl bg-slate-50 p-4">
-              <p className="text-sm font-bold text-slate-800">
-                {successStudent.name}
-              </p>
-
-              <p className="mt-1 text-xs text-slate-400">
-                رقم الطالب: {successStudent.studentId}
-              </p>
-
-              <div className="mt-4 grid grid-cols-3 gap-2">
-                <div className="rounded-lg border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-[10px] text-slate-400">
-                    المطلوب
-                  </p>
-
-                  <p className="mt-1 text-sm font-bold text-slate-800">
-                    {successStudent.financial.totalRequired}
-                  </p>
+            <div className={styles.stats} aria-label="إحصائيات المنصة">
+              {stats.map((stat) => (
+                <div className={styles.stat} key={stat.label}>
+                  <strong>{stat.value}</strong>
+                  <span>{stat.label}</span>
                 </div>
-
-                <div className="rounded-lg border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-[10px] text-slate-400">
-                    المدفوع
-                  </p>
-
-                  <p className="mt-1 text-sm font-bold text-emerald-600">
-                    {successStudent.financial.paid}
-                  </p>
-                </div>
-
-                <div className="rounded-lg border border-slate-200 bg-white p-3 text-center">
-                  <p className="text-[10px] text-slate-400">
-                    المتبقي
-                  </p>
-
-                  <p className="mt-1 text-sm font-bold text-amber-600">
-                    {successStudent.financial.remaining}
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
+          </div>
 
-            <div className="mt-5 flex gap-2">
-              <button
-                type="button"
-                onClick={closeSuccess}
-                className="h-10 flex-1 rounded-lg border border-slate-200 bg-white px-4 text-sm font-medium text-slate-600 transition hover:bg-slate-50"
-              >
-                تسجيل طالب آخر
-              </button>
-
-              <Link
-                href="/students"
-                className="inline-flex h-10 flex-1 items-center justify-center rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white transition hover:bg-teal-700"
-              >
-                عرض الطلاب
-              </Link>
+          <div className={styles.heroVisual}>
+            <div className={styles.blueShape} />
+            <div className={styles.imageFrame}>
+              <Image
+                src="/images/educenter-hero.png"
+                alt="طلاب يتعلمون داخل فصل دراسي"
+                fill
+                priority
+                sizes="(max-width: 700px) 100vw, 54vw"
+                className={styles.heroImage}
+              />
             </div>
+            <div className={styles.heroNote}><span><FiCheck /></span><div><strong>تعلّم يصنع الفرق</strong><small>خطوة أقرب إلى النجاح</small></div></div>
+            <div className={styles.heroLogoCard}><span><FiBookOpen /></span><div><strong>EduCenter</strong><small>منصة إدارة تعليمية متكاملة</small></div></div>
+            <span className={styles.heroSpark} aria-hidden="true">✦</span>
           </div>
         </div>
-      )}
+      </section>
+
+      <section className={styles.platformSection} id="platform">
+        <div className={styles.sectionHeading}>
+          <span className={styles.sectionKicker}>مساحة واحدة لكل تفاصيل مركزك</span>
+          <h2>صورة أوضح. <span>قرارات أفضل.</span></h2>
+          <p>من لوحة التحكم إلى سجل الحضور، كل ما تحتاجه لإدارة يومك التعليمي مرتب أمامك.</p>
+        </div>
+        <DashboardPreview />
+      </section>
+
+      <section className={styles.attendanceSection} id="students">
+        <div className={styles.attendanceIntro}>
+          <span className={styles.sectionKicker}>متابعة بلا تعقيد</span>
+          <h2>كل تقدّم صغير<br /><span>يستحق أن يُلاحظ.</span></h2>
+          <p>تابع حضور طلابك ونتائجهم في لمحة، وامنح كل طالب الاهتمام الذي يستحقه.</p>
+          <Link href="/students" className={styles.textLink}>اكتشف أدوات متابعة الطلاب <FiArrowLeft /></Link>
+        </div>
+        <AttendancePreview />
+      </section>
+
+      <footer className={styles.footer} id="contact">
+        <Brand />
+        <p>تعليم أفضل، يبدأ بتنظيم أفضل.</p>
+        <Link href="/register">ابدأ رحلتك التعليمية <FiArrowLeft /></Link>
+      </footer>
     </main>
   );
 }

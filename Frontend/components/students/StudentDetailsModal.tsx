@@ -213,7 +213,7 @@ export default function StudentDetailsModal({
       >
         <div className="flex shrink-0 items-start justify-between border-b border-slate-100 px-5 py-5 sm:px-6">
           <div className="flex min-w-0 items-center gap-3">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-teal-50 text-sm font-bold text-teal-700">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#EDF2FF] text-sm font-bold text-[#1748EF]">
               {initials || (
                 <FiUser size={19} />
               )}
@@ -395,7 +395,7 @@ export default function StudentDetailsModal({
 
               <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-200">
                 <div
-                  className="h-full rounded-full bg-teal-500 transition-all"
+                  className="h-full rounded-full bg-[#1748EF] transition-all"
                   style={{
                     width: `${paymentPercentage}%`,
                   }}
@@ -520,7 +520,7 @@ export default function StudentDetailsModal({
               onClick={() =>
                 onEdit(student)
               }
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 active:scale-[0.98]"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#123BD0] active:scale-[0.98]"
             >
               <FiEdit2 size={15} />
               تعديل البيانات
@@ -714,7 +714,7 @@ function ActivityItem({
 }) {
   return (
     <div className="flex items-center gap-3 rounded-xl border border-slate-100 bg-slate-50/70 p-3">
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-white text-teal-600 shadow-sm">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-white text-[#1748EF] shadow-sm">
         {icon}
       </div>
 

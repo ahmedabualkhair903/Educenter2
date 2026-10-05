@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -399,7 +398,7 @@ export default function ReportsPage() {
     return (
       <main
         dir="rtl"
-        className="min-h-screen bg-slate-50"
+        className="min-h-screen bg-[#F3F6FB] text-[#10275B]"
       >
         <div className="mx-auto flex min-h-[70vh] max-w-7xl items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
           <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
@@ -425,7 +424,7 @@ export default function ReportsPage() {
     return (
       <main
         dir="rtl"
-        className="min-h-screen bg-slate-50"
+        className="min-h-screen bg-[#F3F6FB] text-[#10275B]"
       >
         <div className="mx-auto flex min-h-[70vh] max-w-7xl items-center justify-center px-4 py-8 sm:px-6 lg:px-8">
           <div className="w-full max-w-md rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
@@ -450,28 +449,33 @@ export default function ReportsPage() {
   return (
     <main
       dir="rtl"
-      className="min-h-screen bg-slate-50"
+      className="min-h-screen bg-[#F3F6FB] text-[#10275B]"
     >
-      <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
+      <div className="mx-auto max-w-[1600px] px-4 py-5 sm:px-6 sm:py-7 lg:px-8 lg:py-8">
         {/* Header */}
 
-        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-6 flex flex-col gap-5 rounded-2xl border border-[#DCE5F2] bg-gradient-to-l from-[#EAF0FF] via-white to-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
-            <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400">
+            <div className="mb-3 flex items-center gap-2 text-xs font-semibold text-slate-400">
               <span>الرئيسية</span>
 
               <span>/</span>
 
-              <span className="text-teal-600">
+              <span className="text-[#1748EF]">
                 التقارير
               </span>
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#D6E0F4] bg-white/80 px-3 py-1 text-[11px] font-bold text-[#10275B]">
+              <FiBarChart2 size={13} className="text-[#1748EF]" />
+              ذكاء الأعمال
+            </div>
+
+            <h1 className="text-2xl font-bold tracking-tight text-[#10275B] sm:text-3xl">
               التقارير
             </h1>
 
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
               متابعة أهم مؤشرات المركز واستخراج التقارير
               الأساسية.
             </p>
@@ -490,7 +494,7 @@ export default function ReportsPage() {
                   setPeriod(event.target.value)
                 }
                 aria-label="الفترة الزمنية"
-                className="h-10 min-w-36 appearance-none rounded-lg border border-slate-200 bg-white py-0 pl-9 pr-9 text-xs font-medium text-slate-600 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                className="h-11 min-w-36 appearance-none rounded-xl border border-slate-200 bg-white py-0 pl-9 pr-9 text-xs font-semibold text-slate-600 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
               >
                 <option value="هذا الشهر">
                   هذا الشهر
@@ -518,7 +522,7 @@ export default function ReportsPage() {
             <button
               type="button"
               onClick={handleExport}
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-xs font-semibold text-white shadow-sm transition hover:bg-teal-700 active:scale-[0.98]"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-xs font-bold text-white shadow-[0_8px_20px_rgba(23,72,239,0.18)] transition hover:bg-[#10275B] active:scale-[0.98]"
             >
               <FiDownload size={15} />
               تصدير التقرير
@@ -528,7 +532,7 @@ export default function ReportsPage() {
 
         {/* Summary */}
 
-        <section className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section aria-label="المؤشرات الرئيسية" className="mb-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           <SummaryCard
             label={summary.students.label}
             value={summary.students.value}
@@ -561,7 +565,7 @@ export default function ReportsPage() {
 
         {/* Report selector */}
 
-        <section className="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <section className="mb-6 rounded-2xl border border-[#DCE5F2] bg-white p-5 shadow-sm sm:p-6">
           <div className="mb-5">
             <h2 className="text-base font-bold text-slate-900">
               أنواع التقارير
@@ -591,16 +595,16 @@ export default function ReportsPage() {
                     className={[
                       "group rounded-xl border p-4 text-right transition",
                       active
-                        ? "border-teal-200 bg-teal-50/70 shadow-sm"
-                        : "border-slate-200 bg-white hover:-translate-y-0.5 hover:border-teal-200 hover:bg-slate-50",
+                        ? "border-[#CAD6FF] bg-[#EEF3FF]/70 shadow-sm"
+                        : "border-slate-200 bg-white hover:-translate-y-0.5 hover:border-[#CAD6FF] hover:bg-slate-50",
                     ].join(" ")}
                   >
                     <div
                       className={[
                         "flex h-10 w-10 items-center justify-center rounded-lg transition",
                         active
-                          ? "bg-white text-teal-600"
-                          : "bg-slate-100 text-slate-500 group-hover:bg-teal-50 group-hover:text-teal-600",
+                          ? "bg-white text-[#1748EF]"
+                          : "bg-slate-100 text-slate-500 group-hover:bg-[#EEF3FF] group-hover:text-[#1748EF]",
                       ].join(" ")}
                     >
                       {report.icon}
@@ -610,7 +614,7 @@ export default function ReportsPage() {
                       className={[
                         "mt-4 text-sm font-bold",
                         active
-                          ? "text-teal-700"
+                          ? "text-[#10275B]"
                           : "text-slate-800",
                       ].join(" ")}
                     >
@@ -629,10 +633,10 @@ export default function ReportsPage() {
 
         {/* Main report */}
 
-        <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <div className="flex flex-col gap-4 border-b border-slate-100 px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <section className="overflow-hidden rounded-2xl border border-[#DCE5F2] bg-white shadow-sm">
+          <div className="flex flex-col gap-4 border-b border-[#E8EDF5] bg-[#FAFBFE] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
             <div className="flex items-center gap-3">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#EEF3FF] text-[#1748EF]">
                 {selectedReport.icon}
               </div>
 
@@ -682,7 +686,7 @@ export default function ReportsPage() {
 
                 <FiBarChart2
                   size={18}
-                  className="text-teal-600"
+                  className="text-[#1748EF]"
                 />
               </div>
 
@@ -699,7 +703,7 @@ export default function ReportsPage() {
                         className="flex h-full flex-1 items-end"
                       >
                         <div
-                          className="w-full rounded-t-md bg-teal-500/80 transition hover:bg-teal-600"
+                          className="w-full rounded-t-md bg-[#1748EF]/80 transition hover:bg-[#1748EF]"
                           style={{
                             height: `${bar.value}%`,
                           }}
@@ -841,7 +845,7 @@ function SummaryCard({
   negative?: boolean;
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-2xl border border-[#DCE5F2] bg-white p-5 shadow-sm">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-sm text-slate-500">
@@ -857,14 +861,14 @@ function SummaryCard({
               "mt-2 text-[11px] font-semibold",
               negative
                 ? "text-emerald-600"
-                : "text-teal-600",
+                : "text-[#1748EF]",
             ].join(" ")}
           >
             {trend}
           </p>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
           {icon}
         </div>
       </div>
@@ -880,7 +884,7 @@ function ReportMetric({
   value: string;
 }) {
   return (
-    <div className="rounded-lg border border-slate-200 bg-white p-4">
+    <div className="rounded-xl border border-[#DCE5F2] bg-white p-4">
       <p className="text-[11px] text-slate-400">
         {label}
       </p>

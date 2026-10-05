@@ -17,7 +17,7 @@ export default function Error({
   return (
     <main
       dir="rtl"
-      className="flex min-h-screen items-center justify-center bg-slate-50 px-6"
+      className="flex min-h-screen items-center justify-center bg-[#F5F7FC] px-6"
     >
       <div
         role="alert"
@@ -42,7 +42,7 @@ export default function Error({
         <button
           type="button"
           onClick={() => retry()}
-          className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-lg bg-teal-600 px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 active:scale-[0.98]"
+          className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-[#123BD0] active:scale-[0.98]"
         >
           <FiRefreshCw size={16} aria-hidden="true" />
           إعادة المحاولة

@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -541,23 +540,28 @@ export default function MessagesPage() {
   };
 
   return (
-    <main dir="rtl" className="min-h-screen bg-slate-50">
-      <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
-        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <main dir="rtl" className="min-h-screen bg-[#F3F6FB] text-[#10275B]">
+      <div className="mx-auto max-w-[1600px] px-4 py-5 sm:px-6 sm:py-7 lg:px-8 lg:py-8">
+        <div className="mb-6 flex flex-col gap-5 rounded-2xl border border-[#DCE5F2] bg-gradient-to-l from-[#EAF0FF] via-white to-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
-            <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400">
+            <div className="mb-3 flex items-center gap-2 text-xs font-semibold text-slate-400">
               <span>الرئيسية</span>
               <span>/</span>
-              <span className="text-teal-600">
+              <span className="text-[#1748EF]">
                 الرسائل
               </span>
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
-              WhatsApp والرسائل
+            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#D6E0F4] bg-white/80 px-3 py-1 text-[11px] font-bold text-[#10275B]">
+              <FiMessageCircle size={13} className="text-[#1748EF]" />
+              مركز التواصل
+            </div>
+
+            <h1 className="text-2xl font-bold tracking-tight text-[#10275B] sm:text-3xl">
+              الرسائل والتواصل
             </h1>
 
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
               تجهيز ومتابعة رسائل النتائج
               والحضور والانصراف والغياب.
             </p>
@@ -567,7 +571,7 @@ export default function MessagesPage() {
             type="button"
             onClick={openCreateModal}
             disabled={!whatsappEnabled}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(23,72,239,0.18)] transition hover:bg-[#10275B] disabled:cursor-not-allowed disabled:bg-slate-300 sm:w-auto"
           >
             <FiPlus size={17} />
             رسالة جديدة
@@ -595,7 +599,7 @@ export default function MessagesPage() {
           </section>
         )}
 
-        <section className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+        <section aria-label="ملخص الرسائل" className="mb-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
           <MessageStat
             label="Sent"
             value={sentCount}
@@ -627,10 +631,10 @@ export default function MessagesPage() {
           />
         </section>
 
-        <section className="mb-6 overflow-hidden rounded-xl border border-teal-100 bg-gradient-to-l from-teal-50 to-white p-5">
+        <section className="mb-6 overflow-hidden rounded-2xl border border-[#D6E0F4] bg-gradient-to-l from-[#EAF0FF] via-white to-white p-5 shadow-sm sm:p-6">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
             <div className="flex items-center gap-4">
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-teal-100 text-teal-700">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#DCE7FF] text-[#10275B]">
                 <FiMessageCircle size={21} />
               </div>
 
@@ -673,8 +677,8 @@ export default function MessagesPage() {
           </div>
         </section>
 
-        <section className="mb-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <div className="flex flex-col gap-3 border-b border-slate-100 p-5 sm:flex-row sm:items-center sm:justify-between">
+        <section className="mb-6 overflow-hidden rounded-2xl border border-[#DCE5F2] bg-white shadow-sm">
+          <div className="flex flex-col gap-3 border-b border-[#E8EDF5] bg-[#FAFBFE] p-5 sm:flex-row sm:items-center sm:justify-between">
             <div>
               <h2 className="text-sm font-bold text-slate-800">
                 حسابات الإرسال
@@ -692,7 +696,7 @@ export default function MessagesPage() {
                 setEditingAccount(null);
                 setAccountModalOpen(true);
               }}
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-[#1748EF] px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-[#10275B]"
             >
               <FiPlus size={16} />
               إضافة حساب
@@ -727,7 +731,7 @@ export default function MessagesPage() {
                     className={[
                       "rounded-xl border p-4 transition",
                       account.isDefault
-                        ? "border-teal-500 bg-teal-50/50 ring-4 ring-teal-500/10"
+                        ? "border-[#1748EF] bg-[#EEF3FF]/50 ring-4 ring-[#1748EF]/10"
                         : "border-slate-200 bg-white",
                     ].join(" ")}
                   >
@@ -746,7 +750,7 @@ export default function MessagesPage() {
                           </span>
 
                           {account.isDefault && (
-                            <span className="inline-flex items-center gap-1 rounded-md bg-teal-600 px-2 py-0.5 text-[10px] font-bold text-white">
+                            <span className="inline-flex items-center gap-1 rounded-md bg-[#1748EF] px-2 py-0.5 text-[10px] font-bold text-white">
                               <FiStar size={10} />
                               افتراضي
                             </span>
@@ -794,7 +798,7 @@ export default function MessagesPage() {
                           onClick={() =>
                             setTestingAccount(account)
                           }
-                          className="flex h-8 w-8 items-center justify-center rounded-md text-slate-400 transition hover:bg-teal-50 hover:text-teal-600"
+                          className="flex h-8 w-8 items-center justify-center rounded-md text-slate-400 transition hover:bg-[#EEF3FF] hover:text-[#1748EF]"
                         >
                           <FiSend size={15} />
                         </button>
@@ -833,7 +837,7 @@ export default function MessagesPage() {
           </div>
         </section>
 
-        <section className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+        <section className="mb-6 rounded-2xl border border-[#DCE5F2] bg-white p-4 shadow-sm sm:p-5">
           <div className="flex flex-col gap-3 lg:flex-row">
             <div className="relative flex-1">
               <FiSearch
@@ -849,7 +853,7 @@ export default function MessagesPage() {
                 }
                 placeholder="ابحث في الرسائل أو المستلمين..."
                 aria-label="البحث في الرسائل"
-                className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+                className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
               />
             </div>
 
@@ -863,7 +867,7 @@ export default function MessagesPage() {
                 )
               }
               aria-label="فلترة حسب النوع"
-              className="h-10 min-w-40 rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+              className="h-10 min-w-40 rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
             >
               {typeOptions.map((option) => (
                 <option
@@ -885,7 +889,7 @@ export default function MessagesPage() {
                 )
               }
               aria-label="فلترة حسب الحالة"
-              className="h-10 min-w-36 rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+              className="h-10 min-w-36 rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
             >
               {statusOptions.map((option) => (
                 <option
@@ -899,8 +903,8 @@ export default function MessagesPage() {
           </div>
         </section>
 
-        <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+        <section className="overflow-hidden rounded-2xl border border-[#DCE5F2] bg-white shadow-sm">
+          <div className="flex items-center justify-between border-b border-[#E8EDF5] bg-[#FAFBFE] px-5 py-4">
             <div>
               <h2 className="text-sm font-bold text-slate-800">
                 سجل الرسائل
@@ -960,7 +964,7 @@ export default function MessagesPage() {
                     >
                       <td className="max-w-[330px] px-5 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#EEF3FF] text-[#1748EF]">
                             <FiMessageCircle size={16} />
                           </div>
 
@@ -1074,7 +1078,7 @@ export default function MessagesPage() {
                               message.status === "sent" ||
                               message.status === "pending"
                             }
-                            className="flex h-8 w-8 items-center justify-center rounded-md text-slate-400 transition hover:bg-teal-50 hover:text-teal-600 disabled:cursor-not-allowed disabled:opacity-40"
+                            className="flex h-8 w-8 items-center justify-center rounded-md text-slate-400 transition hover:bg-[#EEF3FF] hover:text-[#1748EF] disabled:cursor-not-allowed disabled:opacity-40"
                             title={
                               message.status === "sent"
                                 ? "تم الإرسال"
@@ -1166,7 +1170,7 @@ function MessageStat({
   icon: ReactNode;
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-2xl border border-[#DCE5F2] bg-white p-5 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-slate-500">
@@ -1178,7 +1182,7 @@ function MessageStat({
           </p>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
           {icon}
         </div>
       </div>
@@ -1661,7 +1665,7 @@ function MessageModal({
                     className={[
                       "flex items-center gap-3 rounded-xl border p-3 text-right transition",
                       recipientType === "student"
-                        ? "border-teal-500 bg-teal-50/60 ring-4 ring-teal-500/10"
+                        ? "border-[#1748EF] bg-[#EEF3FF]/60 ring-4 ring-[#1748EF]/10"
                         : "border-slate-200 bg-white hover:border-slate-300",
                     ].join(" ")}
                   >
@@ -1669,7 +1673,7 @@ function MessageModal({
                       className={[
                         "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg",
                         recipientType === "student"
-                          ? "bg-teal-600 text-white"
+                          ? "bg-[#1748EF] text-white"
                           : "bg-slate-100 text-slate-500",
                       ].join(" ")}
                     >
@@ -1696,7 +1700,7 @@ function MessageModal({
                     className={[
                       "flex items-center gap-3 rounded-xl border p-3 text-right transition",
                       recipientType === "groups"
-                        ? "border-teal-500 bg-teal-50/60 ring-4 ring-teal-500/10"
+                        ? "border-[#1748EF] bg-[#EEF3FF]/60 ring-4 ring-[#1748EF]/10"
                         : "border-slate-200 bg-white hover:border-slate-300",
                     ].join(" ")}
                   >
@@ -1704,7 +1708,7 @@ function MessageModal({
                       className={[
                         "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg",
                         recipientType === "groups"
-                          ? "bg-teal-600 text-white"
+                          ? "bg-[#1748EF] text-white"
                           : "bg-slate-100 text-slate-500",
                       ].join(" ")}
                     >
@@ -1736,7 +1740,7 @@ function MessageModal({
                         }
                         placeholder="بحث سريع باسم الطالب أو الكود..."
                         aria-label="بحث سريع عن طالب"
-                        className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+                        className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
                       />
                     </div>
 
@@ -1784,7 +1788,7 @@ function MessageModal({
                         <button
                           type="button"
                           onClick={() => setSelectedGroupIds([])}
-                          className="text-[11px] font-semibold text-teal-600 hover:text-teal-700"
+                          className="text-[11px] font-semibold text-[#1748EF] hover:text-[#10275B]"
                         >
                           مسح الاختيار
                         </button>
@@ -1805,7 +1809,7 @@ function MessageModal({
                             className={[
                               "flex cursor-pointer items-center gap-2.5 rounded-lg border px-3 py-2 transition",
                               checked
-                                ? "border-teal-500 bg-teal-50/70"
+                                ? "border-[#1748EF] bg-[#EEF3FF]/70"
                                 : "border-transparent bg-white hover:border-slate-200",
                             ].join(" ")}
                           >
@@ -1813,7 +1817,7 @@ function MessageModal({
                               type="checkbox"
                               checked={checked}
                               onChange={() => toggleGroup(group.id)}
-                              className="h-4 w-4 shrink-0 accent-teal-600"
+                              className="h-4 w-4 shrink-0 accent-[#1748EF]"
                             />
                             <span className="min-w-0 flex-1 text-xs font-semibold text-slate-700">
                               {group.name}
@@ -1922,7 +1926,7 @@ function MessageModal({
                     fileInputRef.current?.click()
                   }
                   disabled={readingFile}
-                  className="flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 text-xs font-semibold text-slate-600 transition hover:border-teal-400 hover:bg-teal-50/50 hover:text-teal-700 disabled:cursor-wait disabled:opacity-60"
+                  className="flex h-11 w-full items-center justify-center gap-2 rounded-xl border border-dashed border-slate-300 bg-slate-50 px-4 text-xs font-semibold text-slate-600 transition hover:border-[#5EADEB] hover:bg-[#EEF3FF]/50 hover:text-[#10275B] disabled:cursor-wait disabled:opacity-60"
                 >
                   <FiPaperclip size={15} />
                   {readingFile
@@ -1930,7 +1934,7 @@ function MessageModal({
                     : "إرفاق صورة أو ملف PDF"}
                 </button>
               ) : (
-                <div className="flex items-center gap-3 rounded-xl border border-teal-200 bg-teal-50/60 p-3">
+                <div className="flex items-center gap-3 rounded-xl border border-[#CAD6FF] bg-[#EEF3FF]/60 p-3">
                   {attachment.mime.startsWith("image/") &&
                   attachment.data ? (
                     <Image
@@ -2063,7 +2067,7 @@ function MessageModal({
             type="button"
             onClick={() => void handleSubmit()}
             disabled={isSaving}
-            className="inline-flex h-10 items-center gap-2 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-10 items-center gap-2 rounded-lg bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#10275B] disabled:cursor-not-allowed disabled:opacity-60"
           >
             <FiFileText size={15} />
 
@@ -2323,7 +2327,7 @@ function AccountModal({
                 onChange={(event) =>
                   setIsDefault(event.target.checked)
                 }
-                className="h-4 w-4 shrink-0 accent-teal-600"
+                className="h-4 w-4 shrink-0 accent-[#1748EF]"
               />
 
               <span className="text-xs font-semibold text-slate-700">
@@ -2347,7 +2351,7 @@ function AccountModal({
             type="button"
             onClick={() => void handleSubmit()}
             disabled={isSaving}
-            className="inline-flex h-10 items-center gap-2 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex h-10 items-center gap-2 rounded-lg bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#10275B] disabled:cursor-not-allowed disabled:opacity-60"
           >
             <FiCheckCircle size={15} />
             {isSaving
@@ -2494,7 +2498,7 @@ function AccountTestModal({
               type="button"
               onClick={() => void handleTest()}
               disabled={isSending}
-              className="inline-flex h-10 items-center gap-2 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex h-10 items-center gap-2 rounded-lg bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#10275B] disabled:cursor-not-allowed disabled:opacity-60"
             >
               <FiSend size={15} />
               {isSending ? "جاري الإرسال..." : "إرسال اختبار"}

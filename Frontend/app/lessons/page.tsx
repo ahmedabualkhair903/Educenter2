@@ -553,7 +553,7 @@ export default function LessonsPage() {
   return (
     <main
       dir="rtl"
-      className="min-h-screen bg-slate-50"
+      className="min-h-screen bg-[#F4F7FC] text-[#10275B]"
     >
       <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
         {/* Header */}
@@ -563,12 +563,12 @@ export default function LessonsPage() {
             <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400">
               <span>الرئيسية</span>
               <span>/</span>
-              <span className="text-teal-600">
+              <span className="text-[#1748EF]">
                 الحصص
               </span>
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-2xl font-extrabold tracking-tight text-[#10275B]">
               الحصص
             </h1>
 
@@ -580,7 +580,7 @@ export default function LessonsPage() {
           <button
             type="button"
             onClick={openCreateModal}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 active:scale-[0.98]"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-bold text-white shadow-[0_10px_24px_-12px_rgba(23,72,239,0.8)] transition hover:bg-[#1238C7] active:scale-[0.98]"
           >
             <FiPlus size={17} />
             إضافة حصة
@@ -589,7 +589,7 @@ export default function LessonsPage() {
 
         {/* Stats */}
 
-        <section className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section className="mb-7 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           <LessonStat
             label="حصص اليوم"
             value={todayCount}
@@ -617,7 +617,7 @@ export default function LessonsPage() {
 
         {/* Filters */}
 
-        <section className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+        <section className="mb-6 rounded-2xl border border-[#E1E8F2] bg-white p-4 shadow-[0_12px_32px_-24px_rgba(16,39,91,0.28)] sm:p-5">
           <div className="flex flex-col gap-3 lg:flex-row">
             <div className="relative flex-1">
               <FiSearch
@@ -633,7 +633,7 @@ export default function LessonsPage() {
                 }
                 placeholder="ابحث باسم المادة أو المدرس أو المجموعة..."
                 aria-label="البحث في الحصص"
-                className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+                className="h-11 w-full rounded-xl border border-[#E1E8F2] bg-[#F4F7FC] pr-10 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
               />
             </div>
 
@@ -664,7 +664,7 @@ export default function LessonsPage() {
                 setStatusFilter("الكل");
                 setSelectedDate("اليوم");
               }}
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-slate-200 px-4 text-sm font-medium text-slate-600 transition hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700"
+              className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-[#E1E8F2] px-4 text-sm font-medium text-slate-600 transition hover:border-[#C8D5FF] hover:bg-[#EEF3FF] hover:text-[#1238C7]"
             >
               <FiFilter size={15} />
               إعادة ضبط
@@ -674,8 +674,8 @@ export default function LessonsPage() {
 
         {/* Lessons */}
 
-        <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-          <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+        <section className="overflow-hidden rounded-2xl border border-[#E1E8F2] bg-white shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)]">
+          <div className="flex items-center justify-between border-b border-[#EAF0F7] bg-white px-5 py-5">
             <div>
               <h2 className="text-sm font-bold text-slate-800">
                 جدول الحصص
@@ -698,7 +698,7 @@ export default function LessonsPage() {
           <div className="overflow-x-auto">
             <table className="w-full min-w-[1050px] text-right">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50/70">
+                <tr className="border-b border-[#EAF0F7] bg-[#F4F7FC]">
                   <th className="px-5 py-3 text-xs font-semibold text-slate-500">
                     المادة
                   </th>
@@ -741,7 +741,7 @@ export default function LessonsPage() {
                   >
                     <td className="px-5 py-4">
                       <div className="flex items-center gap-3">
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EDF2FF] text-[#1748EF]">
                           <FiBookOpen size={16} />
                         </div>
 
@@ -898,7 +898,7 @@ export default function LessonsPage() {
                       setStatusFilter("الكل");
                       setSelectedDate("اليوم");
                     }}
-                    className="mt-4 text-xs font-semibold text-teal-600 transition hover:text-teal-700"
+                    className="mt-4 text-xs font-semibold text-[#1748EF] transition hover:text-[#123BD0]"
                   >
                     إعادة ضبط الفلاتر
                   </button>
@@ -942,7 +942,7 @@ function LessonStat({
   icon: ReactNode;
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition hover:border-slate-300 hover:shadow">
+    <div className="rounded-2xl border border-[#E1E8F2] bg-white p-5 shadow-[0_12px_32px_-24px_rgba(16,39,91,0.3)] transition hover:-translate-y-0.5 hover:border-[#C8D5FF] hover:shadow-lg">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-slate-500">
@@ -954,7 +954,7 @@ function LessonStat({
           </p>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
           {icon}
         </div>
       </div>
@@ -984,7 +984,7 @@ function LessonSelect({
         onChange(event.target.value)
       }
       aria-label={ariaLabel}
-      className="h-10 min-w-32 rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+      className="h-11 min-w-32 rounded-xl border border-[#E1E8F2] bg-white px-3 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
     >
       {options.map((option) => (
         <option key={option} value={option}>
@@ -1572,7 +1572,7 @@ function LessonModal({
                     type="button"
                     onClick={() => void handleAddSubjectOption()}
                     disabled={savingSubject}
-                    className="h-10 shrink-0 rounded-lg bg-teal-600 px-3 text-xs font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="h-10 shrink-0 rounded-xl bg-[#1748EF] px-3 text-xs font-semibold text-white transition hover:bg-[#123BD0] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {savingSubject ? "جاري الحفظ..." : "حفظ"}
                   </button>
@@ -1773,7 +1773,7 @@ function LessonModal({
             type="button"
             onClick={() => void handleSubmit()}
             disabled={saving}
-            className="h-10 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+            className="h-10 rounded-xl bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#123BD0] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {saving
               ? "جاري الحفظ..."

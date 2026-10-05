@@ -41,7 +41,10 @@ export const checkOutService = {
   create: async (
     record: Omit<CheckOutRecord, "id" | "createdAt" | "updatedAt">,
   ): Promise<CheckOutRecord> => {
-    const targetId = record.attendanceRecordId ?? (record as any).id ?? record.studentId;
+    const targetId =
+      record.attendanceRecordId ??
+      ("id" in record && typeof record.id === "string" ? record.id : undefined) ??
+      record.studentId;
     const res = await api.post<CheckOutRecord>(
       `/attendance/${targetId}/checkout`,
       record,

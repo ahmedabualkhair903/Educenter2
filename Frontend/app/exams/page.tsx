@@ -767,17 +767,17 @@ export default function ExamsPage() {
   return (
     <main
       dir="rtl"
-      className="min-h-screen bg-slate-50 text-slate-900"
+      className="min-h-screen bg-[#F4F7FC] text-[#10275B]"
     >
       <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
-        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-7 flex flex-col gap-4 rounded-3xl border border-[#E1E8F2] bg-white p-5 shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)] sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
-            <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-500">
+            <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[#71809A]">
               <FiFileText />
               الامتحانات والدرجات
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-2xl font-extrabold tracking-tight text-[#10275B]">
               الامتحانات والدرجات
             </h1>
 
@@ -789,7 +789,7 @@ export default function ExamsPage() {
           <button
             type="button"
             onClick={openCreateExam}
-            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 text-sm font-semibold text-white transition hover:bg-slate-800"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-bold text-white shadow-[0_10px_24px_-12px_rgba(23,72,239,0.8)] transition hover:bg-[#1238C7]"
           >
             <FiPlus size={18} />
             إنشاء امتحان جديد
@@ -817,8 +817,8 @@ export default function ExamsPage() {
         </div>
 
         <div className="grid grid-cols-1 gap-5 xl:grid-cols-[minmax(0,1fr)_380px]">
-          <section className="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
-            <div className="border-b border-slate-100 p-4 sm:p-5">
+          <section className="min-w-0 overflow-hidden rounded-3xl border border-[#E1E8F2] bg-white shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)]">
+            <div className="border-b border-[#EAF0F7] p-4 sm:p-5">
               <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <h2 className="text-base font-bold text-slate-900">
@@ -1026,7 +1026,7 @@ export default function ExamsPage() {
             )}
           </section>
 
-          <aside className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+          <aside className="overflow-hidden rounded-3xl border border-[#E1E8F2] bg-white shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)]">
             {!selectedExam ? (
               <EmptySelectedExam />
             ) : (
@@ -1047,7 +1047,7 @@ export default function ExamsPage() {
                       </p>
                     </div>
 
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
                       <FiAward />
                     </div>
                   </div>
@@ -1093,7 +1093,7 @@ export default function ExamsPage() {
 
                     <div className="h-2 overflow-hidden rounded-full bg-slate-100">
                       <div
-                        className="h-full rounded-full bg-slate-800 transition-all"
+                        className="h-full rounded-full bg-[#1748EF] transition-all"
                         style={{
                           width: `${
                             examRows.length
@@ -1172,7 +1172,7 @@ export default function ExamsPage() {
                     onClick={() =>
                       setShowApprovalModal(true)
                     }
-                    className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-slate-900 px-4 text-sm font-semibold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
+                    className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-4 text-sm font-semibold text-white transition hover:bg-[#1238C7] disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
                   >
                     <FiCheckCircle />
 
@@ -1849,7 +1849,7 @@ function SummaryCard({
   value: number;
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-2xl border border-[#E1E8F2] bg-white p-5 shadow-[0_12px_32px_-24px_rgba(16,39,91,0.3)]">
       <div className="flex items-start justify-between gap-3">
         <div>
           <p className="text-xs font-medium text-slate-500">
@@ -1861,7 +1861,7 @@ function SummaryCard({
           </p>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
           {icon}
         </div>
       </div>

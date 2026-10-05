@@ -95,7 +95,7 @@ export default function TimePicker({
   };
 
   const selectClassName =
-    "h-11 rounded-xl border border-slate-200 bg-white px-2 text-center text-sm font-semibold text-slate-700 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400";
+    "h-11 rounded-xl border border-slate-200 bg-white px-2 text-center text-sm font-semibold text-slate-700 outline-none transition focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400";
 
   return (
     <div

@@ -12,6 +12,7 @@ import Link from "next/link";
 
 import {
   FiAlertCircle,
+  FiBarChart2,
   FiCalendar,
   FiCheck,
   FiCheckCircle,
@@ -28,6 +29,18 @@ import {
   FiUsers,
   FiX,
 } from "react-icons/fi";
+import {
+  Bar,
+  BarChart,
+  CartesianGrid,
+  Cell,
+  Pie,
+  PieChart,
+  ResponsiveContainer,
+  Tooltip,
+  XAxis,
+  YAxis,
+} from "recharts";
 
 import type {
   AttendanceRecord,
@@ -223,7 +236,7 @@ export default function AttendancePage() {
           lesson.groupId ===
           selectedGroupId,
       ),
-    [selectedGroupId],
+    [lessons, selectedGroupId],
   );
 
   const selectedLesson =
@@ -297,6 +310,79 @@ export default function AttendancePage() {
         record.status === "absent",
     ).length;
 
+  const attendanceChartData = useMemo(
+    () => [
+      {
+        label: "حاضر",
+        value: presentCount,
+        color: "#1748EF",
+      },
+      {
+        label: "متأخر",
+        value: lateCount,
+        color: "#F5A623",
+      },
+      {
+        label: "غائب",
+        value: absentCount,
+        color: "#EF6B73",
+      },
+      {
+        label: "معذور",
+        value: sessionAttendance.filter(
+          (record) => record.status === "excused",
+        ).length,
+        color: "#8B78D9",
+      },
+      {
+        label: "غير مسجل",
+        value: sessionAttendance.filter(
+          (record) => record.status === "unrecorded",
+        ).length,
+        color: "#A8B1C2",
+      },
+    ],
+    [
+      absentCount,
+      lateCount,
+      presentCount,
+      sessionAttendance,
+    ],
+  );
+
+  const attendanceRateDenominator =
+    presentCount + lateCount + absentCount;
+
+  const attendanceRate =
+    attendanceRateDenominator > 0
+      ? Math.round(
+          ((presentCount + lateCount) /
+            attendanceRateDenominator) *
+            100,
+        )
+      : 0;
+
+  const attendanceDonutData = useMemo(
+    () => [
+      {
+        label: "حاضر",
+        value: presentCount,
+        color: "#1748EF",
+      },
+      {
+        label: "متأخر",
+        value: lateCount,
+        color: "#F5A623",
+      },
+      {
+        label: "غائب",
+        value: absentCount,
+        color: "#EF6B73",
+      },
+    ],
+    [absentCount, lateCount, presentCount],
+  );
+
   const pendingSuspicious =
     suspicious.filter(
       (item) =>
@@ -322,7 +408,7 @@ export default function AttendancePage() {
         width: 200,
         margin: 2,
         color: {
-          dark: '#0f766e',
+          dark: '#1748EF',
           light: '#ffffff',
         },
       });
@@ -477,7 +563,7 @@ export default function AttendancePage() {
             <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400">
               <span>الرئيسية</span>
               <span>/</span>
-              <span className="text-teal-600">
+              <span className="text-[#1748EF]">
                 الحضور والغياب
               </span>
             </div>
@@ -583,7 +669,7 @@ export default function AttendancePage() {
                       event.target.value,
                     )
                   }
-                  className="h-10 w-full rounded-lg border border-slate-200 bg-white pr-9 pl-3 text-sm text-slate-600 outline-none transition focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                  className="h-10 w-full rounded-xl border border-slate-200 bg-white pr-9 pl-3 text-sm text-slate-600 outline-none transition focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                 />
               </div>
             </div>
@@ -603,7 +689,7 @@ export default function AttendancePage() {
                 }
                 className={`flex h-10 w-full items-center justify-between rounded-lg border px-3 text-sm transition ${
                   passwordEnabled
-                    ? "border-teal-200 bg-teal-50 text-teal-700"
+                    ? "border-[#CCD8FF] bg-[#EDF2FF] text-[#1748EF]"
                     : "border-slate-200 bg-slate-50 text-slate-500"
                 }`}
               >
@@ -615,7 +701,7 @@ export default function AttendancePage() {
                 <span
                   className={`h-5 w-9 rounded-full p-0.5 transition ${
                     passwordEnabled
-                      ? "bg-teal-600"
+                      ? "bg-[#1748EF]"
                       : "bg-slate-300"
                   }`}
                 >
@@ -650,7 +736,7 @@ export default function AttendancePage() {
                       event.target.value,
                     )
                   }
-                  className="h-10 flex-1 rounded-lg border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                  className="h-10 flex-1 rounded-xl border border-slate-200 bg-white px-3 text-sm text-slate-700 outline-none focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                   placeholder="أدخل كلمة المرور"
                 />
 
@@ -685,7 +771,7 @@ export default function AttendancePage() {
 
                 <Link
                   href="/groups"
-                  className="mt-1 inline-flex h-9 items-center rounded-lg bg-teal-600 px-4 text-xs font-semibold text-white transition hover:bg-teal-700"
+                  className="mt-1 inline-flex h-9 items-center rounded-xl bg-[#1748EF] px-4 text-xs font-semibold text-white transition hover:bg-[#123BD0]"
                 >
                   الذهاب لصفحة المجموعات
                 </Link>
@@ -740,7 +826,7 @@ export default function AttendancePage() {
                 onClick={
                   openSession
                 }
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-xs font-semibold text-white shadow-sm transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-xs font-semibold text-white shadow-sm transition hover:bg-[#123BD0] disabled:cursor-not-allowed disabled:bg-slate-300"
               >
                 {isLoading ? (
                   <FiRefreshCw
@@ -756,6 +842,17 @@ export default function AttendancePage() {
             )}
           </div>
         </section>
+
+        {!isLoading && selectedGroupId && selectedLesson && (
+          <AttendanceVisualizations
+            groupName={selectedGroup?.name ?? ""}
+            lessonName={selectedLesson.title}
+            barData={attendanceChartData}
+            donutData={attendanceDonutData}
+            attendanceRate={attendanceRate}
+            rateDenominator={attendanceRateDenominator}
+          />
+        )}
 
         {/* Closed */}
 
@@ -786,7 +883,7 @@ export default function AttendancePage() {
           <section className="mb-6 rounded-xl border border-slate-200 bg-white p-10 text-center shadow-sm">
             <FiRefreshCw
               size={24}
-              className="mx-auto animate-spin text-teal-600"
+              className="mx-auto animate-spin text-[#1748EF]"
             />
 
             <p className="mt-3 text-xs font-medium text-slate-500">
@@ -869,7 +966,7 @@ export default function AttendancePage() {
                 value={
                   presentCount
                 }
-                className="text-teal-600"
+                className="text-[#1748EF]"
               />
 
               <AttendanceStat
@@ -987,7 +1084,7 @@ export default function AttendancePage() {
                 <div className="flex items-center justify-center gap-2">
                   <FiShield
                     size={16}
-                    className="text-teal-600"
+                    className="text-[#1748EF]"
                   />
 
                   <h2 className="text-sm font-bold text-slate-800">
@@ -1020,12 +1117,12 @@ export default function AttendancePage() {
                 </p>
 
                 {passwordEnabled && (
-                  <div className="mt-3 rounded-lg bg-teal-50 px-3 py-2">
-                    <p className="text-[10px] text-teal-600">
+                  <div className="mt-3 rounded-lg bg-[#EDF2FF] px-3 py-2">
+                    <p className="text-[10px] text-[#1748EF]">
                       كلمة مرور الحضور
                     </p>
 
-                    <p className="mt-0.5 text-sm font-bold tracking-[0.25em] text-teal-800">
+                    <p className="mt-0.5 text-sm font-bold tracking-[0.25em] text-[#10275B]">
                       {showPassword ? sessionPassword : "••••••••"}
                     </p>
                   </div>
@@ -1065,7 +1162,7 @@ export default function AttendancePage() {
                         )
                       }
                       placeholder="ابحث عن طالب..."
-                      className="h-9 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-xs text-slate-700 outline-none focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+                      className="h-9 w-full rounded-xl border border-slate-200 bg-slate-50 pr-9 pl-3 text-xs text-slate-700 outline-none focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
                     />
                   </div>
                 </div>
@@ -1484,6 +1581,264 @@ function AttendanceStat({
   );
 }
 
+type AttendanceChartDatum = {
+  label: string;
+  value: number;
+  color: string;
+};
+
+function AttendanceVisualizations({
+  groupName,
+  lessonName,
+  barData,
+  donutData,
+  attendanceRate,
+  rateDenominator,
+}: {
+  groupName: string;
+  lessonName: string;
+  barData: AttendanceChartDatum[];
+  donutData: AttendanceChartDatum[];
+  attendanceRate: number;
+  rateDenominator: number;
+}) {
+  const totalRecords = barData.reduce(
+    (total, item) => total + item.value,
+    0,
+  );
+
+  return (
+    <section
+      className="mb-6 grid gap-4 xl:grid-cols-[1.55fr_1fr]"
+      aria-label="التمثيل البياني للحضور والغياب"
+    >
+      <article className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+        <div className="mb-4 flex items-start justify-between gap-3">
+          <div>
+            <div className="flex items-center gap-2">
+              <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#EDF2FF] text-[#1748EF]">
+                <FiBarChart2 size={17} />
+              </span>
+              <div>
+                <h2 className="text-sm font-bold text-slate-800">
+                  توزيع حالات الحضور
+                </h2>
+                <p className="mt-1 text-[11px] text-slate-400">
+                  عدد سجلات الطلاب حسب الحالة
+                </p>
+              </div>
+            </div>
+          </div>
+          <span className="shrink-0 rounded-full bg-slate-50 px-3 py-1.5 text-[10px] font-semibold text-slate-500">
+            {totalRecords.toLocaleString("ar-EG")} سجل
+          </span>
+        </div>
+
+        <div
+          className="h-[230px] min-w-0 sm:h-[250px]"
+          dir="ltr"
+          role="img"
+          aria-label={`رسم أعمدة لحالات الحضور: ${barData
+            .map(
+              (item) =>
+                `${item.label} ${item.value.toLocaleString("ar-EG")}`,
+            )
+            .join("، ")}`}
+        >
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart
+              data={barData}
+              margin={{ top: 10, right: 4, left: -18, bottom: 0 }}
+              barCategoryGap="32%"
+            >
+              <CartesianGrid
+                stroke="#edf1f7"
+                strokeDasharray="3 4"
+                vertical={false}
+              />
+              <XAxis
+                dataKey="label"
+                reversed
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: "#74819a", fontSize: 11, fontFamily: "inherit" }}
+                tickMargin={12}
+                interval={0}
+              />
+              <YAxis
+                allowDecimals={false}
+                axisLine={false}
+                tickLine={false}
+                tick={{ fill: "#98a2b3", fontSize: 10, fontFamily: "inherit" }}
+                width={32}
+                tickMargin={6}
+              />
+              <Tooltip
+                cursor={{ fill: "#f5f8fc" }}
+                contentStyle={{
+                  border: "1px solid #e5eaf2",
+                  borderRadius: 10,
+                  boxShadow: "0 8px 24px rgba(15, 35, 70, .10)",
+                  fontFamily: "inherit",
+                  fontSize: 12,
+                  direction: "rtl",
+                }}
+                formatter={(value) => [
+                  Number(value).toLocaleString("ar-EG"),
+                  "عدد السجلات",
+                ]}
+              />
+              <Bar dataKey="value" name="عدد السجلات" radius={[6, 6, 0, 0]}>
+                {barData.map((item) => (
+                  <Cell key={item.label} fill={item.color} />
+                ))}
+              </Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+
+        <div className="mt-1 flex items-center justify-between gap-2 border-t border-slate-100 pt-3 text-[10px] text-slate-400">
+          <span className="truncate">{groupName}</span>
+          <span className="shrink-0">{lessonName}</span>
+        </div>
+      </article>
+
+      <article className="min-w-0 rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
+        <div className="flex items-start gap-2">
+          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EDF2FF] text-[#1748EF]">
+            <FiCheckCircle size={17} />
+          </span>
+          <div>
+            <h2 className="text-sm font-bold text-slate-800">
+              نسبة الحضور
+            </h2>
+            <p className="mt-1 text-[11px] text-slate-400">
+              من السجلات ذات الحالة المحددة
+            </p>
+          </div>
+        </div>
+
+        <div className="relative mx-auto mt-1 h-[178px] w-full max-w-[230px]">
+          <svg
+            className="pointer-events-none absolute inset-0 h-full w-full"
+            viewBox="0 0 200 200"
+            aria-hidden="true"
+          >
+            <circle
+              cx="100"
+              cy="100"
+              r="70"
+              fill="none"
+              stroke="#edf1f7"
+              strokeWidth="16"
+            />
+          </svg>
+          <div
+            className="absolute inset-0"
+            dir="ltr"
+            role="img"
+            aria-label={`نسبة الحضور ${attendanceRate} بالمئة من ${rateDenominator.toLocaleString("ar-EG")} سجل`}
+          >
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={donutData}
+                  dataKey="value"
+                  nameKey="label"
+                  cx="50%"
+                  cy="50%"
+                  innerRadius="70%"
+                  outerRadius="88%"
+                  paddingAngle={donutData.filter((item) => item.value > 0).length > 1 ? 3 : 0}
+                  stroke="none"
+                  cornerRadius={5}
+                >
+                  {donutData.map((item) => (
+                    <Cell key={item.label} fill={item.color} />
+                  ))}
+                </Pie>
+                <Tooltip
+                  contentStyle={{
+                    border: "1px solid #e5eaf2",
+                    borderRadius: 10,
+                    boxShadow: "0 8px 24px rgba(15, 35, 70, .10)",
+                    fontFamily: "inherit",
+                    fontSize: 12,
+                    direction: "rtl",
+                  }}
+                  formatter={(value, name) => [
+                    `${Number(value).toLocaleString("ar-EG")} سجل`,
+                    name,
+                  ]}
+                />
+              </PieChart>
+            </ResponsiveContainer>
+          </div>
+          <div className="pointer-events-none absolute inset-0 flex flex-col items-center justify-center">
+            <strong className="text-[27px] font-extrabold leading-none text-slate-800">
+              {attendanceRate.toLocaleString("ar-EG")}٪
+            </strong>
+            <span className="mt-2 text-[10px] font-medium text-slate-400">
+              نسبة الحضور
+            </span>
+          </div>
+        </div>
+
+        <div className="grid gap-2 border-t border-slate-100 pt-3">
+          {donutData.map((item) => {
+            const percentage =
+              rateDenominator > 0
+                ? Math.round((item.value / rateDenominator) * 100)
+                : 0;
+
+            return (
+              <div
+                key={item.label}
+                className="flex items-center justify-between gap-3 text-[11px]"
+              >
+                <span className="flex items-center gap-2 text-slate-600">
+                  <span
+                    className="h-2.5 w-2.5 rounded-full"
+                    style={{ backgroundColor: item.color }}
+                  />
+                  {item.label}
+                </span>
+                <span className="font-semibold text-slate-700">
+                  {item.value.toLocaleString("ar-EG")}
+                  <span className="mr-1 text-slate-400">
+                    ({percentage.toLocaleString("ar-EG")}٪)
+                  </span>
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {barData.some(
+          (item) =>
+            item.label === "معذور" || item.label === "غير مسجل",
+        ) &&
+          barData
+            .filter(
+              (item) =>
+                (item.label === "معذور" ||
+                  item.label === "غير مسجل") &&
+                item.value > 0,
+            )
+            .length > 0 && (
+            <p className="mt-3 text-[10px] leading-5 text-slate-400">
+              النسبة تستثني السجلات المعذورة وغير المسجلة.
+            </p>
+          )}
+
+        <p className="mt-2 text-[10px] text-slate-400">
+          {groupName} · {lessonName}
+        </p>
+      </article>
+    </section>
+  );
+}
+
 function SelectField({
   label,
   value,
@@ -1514,7 +1869,7 @@ function SelectField({
               event.target.value,
             )
           }
-          className="h-10 w-full appearance-none rounded-lg border border-slate-200 bg-white px-3 pl-9 text-xs text-slate-600 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+          className="h-10 w-full appearance-none rounded-xl border border-slate-200 bg-white px-3 pl-9 text-xs text-slate-600 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
         >
           {options.map((option) => (
             <option

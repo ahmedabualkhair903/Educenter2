@@ -391,19 +391,19 @@ export default function SettingsPage() {
       : "لم تتم المزامنة بعد";
 
   return (
-    <main dir="rtl" className="min-h-screen bg-slate-50">
+    <main dir="rtl" className="min-h-screen bg-[#F5F7FC]">
       <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
             <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400">
               <span>الرئيسية</span>
               <span>/</span>
-              <span className="text-teal-600">
+              <span className="text-[#1748EF]">
                 الإعدادات
               </span>
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-2xl font-extrabold tracking-tight text-[#10275B]">
               الإعدادات
             </h1>
 
@@ -416,7 +416,7 @@ export default function SettingsPage() {
           <button
             type="button"
             onClick={handleSave}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 active:scale-[0.98]"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-semibold text-white shadow-[0_8px_18px_rgba(23,72,239,.18)] transition hover:bg-[#123BD0] active:scale-[0.98]"
           >
             <FiSave size={16} />
             حفظ التغييرات
@@ -435,7 +435,7 @@ export default function SettingsPage() {
             {/* Center */}
             <section
               id="center-settings"
-              className="rounded-xl border border-slate-200 bg-white shadow-sm"
+              className="rounded-2xl border border-[#E7ECF5] bg-white shadow-[0_5px_20px_rgba(15,35,75,.035)]"
             >
               <SettingsHeader
                 icon={<FiSettings size={18} />}
@@ -494,7 +494,7 @@ export default function SettingsPage() {
             {/* Modules */}
             <section
               id="features-settings"
-              className="rounded-xl border border-slate-200 bg-white shadow-sm"
+              className="rounded-2xl border border-[#E7ECF5] bg-white shadow-[0_5px_20px_rgba(15,35,75,.035)]"
             >
               <SettingsHeader
                 icon={<FiSettings size={18} />}
@@ -539,7 +539,7 @@ export default function SettingsPage() {
             {/* Attendance */}
             <section
               id="attendance-settings"
-              className="rounded-xl border border-slate-200 bg-white shadow-sm"
+              className="rounded-2xl border border-[#E7ECF5] bg-white shadow-[0_5px_20px_rgba(15,35,75,.035)]"
             >
               <SettingsHeader
                 icon={<FiMapPin size={18} />}
@@ -651,7 +651,7 @@ export default function SettingsPage() {
                             : 0,
                       });
                     }}
-                    className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 px-3 text-sm text-slate-700 outline-none transition focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10 sm:w-32"
+                    className="h-10 w-full rounded-xl border border-slate-200 bg-slate-50 px-3 text-sm text-slate-700 outline-none transition focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10 sm:w-32"
                     aria-label="نطاق السماح بالحضور بالمتر"
                   />
                 </div>
@@ -661,7 +661,7 @@ export default function SettingsPage() {
             {/* Notifications */}
             <section
               id="notifications-settings"
-              className="rounded-xl border border-slate-200 bg-white shadow-sm"
+              className="rounded-2xl border border-[#E7ECF5] bg-white shadow-[0_5px_20px_rgba(15,35,75,.035)]"
             >
               <SettingsHeader
                 icon={<FiBell size={18} />}
@@ -755,7 +755,7 @@ export default function SettingsPage() {
             {/* Parent Portal */}
             <section
               id="parent-portal-settings"
-              className="rounded-xl border border-slate-200 bg-white shadow-sm"
+              className="rounded-2xl border border-[#E7ECF5] bg-white shadow-[0_5px_20px_rgba(15,35,75,.035)]"
             >
               <SettingsHeader
                 icon={<FiUsers size={18} />}
@@ -818,7 +818,7 @@ export default function SettingsPage() {
                         settings.parentPortal
                           .syncMode ===
                         "manual"
-                          ? "border-teal-500 bg-teal-50 text-teal-700"
+                          ? "border-[#CCD8FF] bg-[#EDF2FF] text-[#1748EF]"
                           : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300",
                         !settings.parentPortal
                           .enabled
@@ -851,7 +851,7 @@ export default function SettingsPage() {
                         settings.parentPortal
                           .syncMode ===
                         "auto"
-                          ? "border-teal-500 bg-teal-50 text-teal-700"
+                          ? "border-[#CCD8FF] bg-[#EDF2FF] text-[#1748EF]"
                           : "border-slate-200 bg-slate-50 text-slate-600 hover:border-slate-300",
                         !settings.parentPortal
                           .enabled
@@ -972,7 +972,7 @@ export default function SettingsPage() {
                       settings.parentPortal
                         .enabled &&
                       !syncLoading
-                        ? "bg-teal-600 text-white hover:bg-teal-700 active:scale-[0.98]"
+                        ? "bg-[#1748EF] text-white hover:bg-[#123BD0] active:scale-[0.98]"
                         : "cursor-not-allowed bg-slate-100 text-slate-400",
                     ].join(" ")}
                   >
@@ -996,9 +996,9 @@ export default function SettingsPage() {
 
           {/* Sidebar */}
           <aside className="space-y-6">
-            <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+            <section className="rounded-2xl border border-[#E7ECF5] bg-white p-5 shadow-[0_5px_20px_rgba(15,35,75,.035)]">
               <div className="mb-5 flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EDF2FF] text-[#1748EF]">
                   <FiShield size={18} />
                 </div>
 
@@ -1090,7 +1090,7 @@ export default function SettingsPage() {
               </div>
             </section>
 
-            <section className="rounded-xl border border-slate-200 bg-white shadow-sm">
+            <section className="rounded-2xl border border-[#E7ECF5] bg-white shadow-[0_5px_20px_rgba(15,35,75,.035)]">
               <div className="border-b border-slate-100 px-5 py-4">
                 <h2 className="text-sm font-bold text-slate-800">
                   إعدادات سريعة
@@ -1203,7 +1203,7 @@ function SettingsHeader({
 }) {
   return (
     <div className="flex items-center gap-3 border-b border-slate-100 px-5 py-4 sm:px-6">
-      <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+      <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#EDF2FF] text-[#1748EF]">
         {icon}
       </div>
 
@@ -1289,7 +1289,7 @@ function FeatureRow({
         className={[
           "relative h-6 w-11 shrink-0 rounded-full transition",
           enabled
-            ? "bg-teal-600"
+            ? "bg-[#1748EF]"
             : "bg-slate-200",
         ].join(" ")}
       >

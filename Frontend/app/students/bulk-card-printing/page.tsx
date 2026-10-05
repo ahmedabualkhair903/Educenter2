@@ -488,7 +488,7 @@ export default function BulkCardPrintingPage() {
   return (
     <main
       dir="rtl"
-      className="min-h-screen bg-slate-50 print:bg-white"
+      className="min-h-screen bg-[#F3F6FC] print:bg-white"
     >
       <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8 print:max-w-none print:p-0">
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between print:hidden">
@@ -498,12 +498,12 @@ export default function BulkCardPrintingPage() {
               <span>/</span>
               <span>الطلاب</span>
               <span>/</span>
-              <span className="text-teal-600">
+              <span className="text-[#1748EF]">
                 طباعة كروت الطلاب
               </span>
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <h1 className="text-2xl font-black tracking-tight text-[#10275B] sm:text-3xl">
               طباعة كروت الطلاب
             </h1>
 
@@ -515,7 +515,7 @@ export default function BulkCardPrintingPage() {
           <button
             type="button"
             onClick={handleReset}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-sm font-semibold text-slate-600 shadow-sm transition hover:bg-slate-50"
+            className="inline-flex h-11 items-center justify-center gap-2 rounded-xl border border-[#DCE5F2] bg-white px-4 text-sm font-semibold text-[#10275B] shadow-sm transition hover:border-[#BFCDF0] hover:bg-[#F5F7FC]"
           >
             <FiRefreshCw size={15} />
             إعادة ضبط
@@ -524,7 +524,7 @@ export default function BulkCardPrintingPage() {
 
         {!isGenerated ? (
           <section className="grid gap-6 lg:grid-cols-[300px_minmax(0,1fr)] print:hidden">
-            <aside className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+            <aside className="rounded-2xl border border-[#DCE5F2] bg-white p-4 shadow-[0_12px_30px_rgba(16,39,91,0.05)] sm:p-5">
               <div className="mb-4">
                 <p className="text-sm font-bold text-slate-900">
                   طريقة الاختيار
@@ -554,15 +554,15 @@ export default function BulkCardPrintingPage() {
                       }}
                       className={`w-full rounded-xl border p-3 text-right transition ${
                         active
-                          ? "border-teal-200 bg-teal-50"
-                          : "border-slate-100 bg-white hover:border-slate-200 hover:bg-slate-50"
+                          ? "border-[#B8C8FF] bg-[#EEF2FF]"
+                          : "border-slate-100 bg-white hover:border-[#DCE5F2] hover:bg-[#F7F9FD]"
                       }`}
                     >
                       <div className="flex items-start gap-3">
                         <div
                           className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
                             active
-                              ? "bg-teal-600 text-white"
+                              ? "bg-[#1748EF] text-white"
                               : "bg-slate-100 text-slate-400"
                           }`}
                         >
@@ -577,7 +577,7 @@ export default function BulkCardPrintingPage() {
                           <p
                             className={`text-xs font-bold ${
                               active
-                                ? "text-teal-800"
+                                ? "text-[#10275B]"
                                 : "text-slate-700"
                             }`}
                           >
@@ -595,7 +595,7 @@ export default function BulkCardPrintingPage() {
               </div>
             </aside>
 
-            <section className="rounded-2xl border border-slate-200 bg-white shadow-sm">
+            <section className="rounded-2xl border border-[#DCE5F2] bg-white shadow-[0_12px_30px_rgba(16,39,91,0.05)]">
               <div className="border-b border-slate-100 px-5 py-5 sm:px-6">
                 <div className="flex items-center justify-between gap-4">
                   <div>
@@ -612,12 +612,12 @@ export default function BulkCardPrintingPage() {
                     </p>
                   </div>
 
-                  <div className="rounded-xl bg-teal-50 px-3 py-2 text-center">
-                    <p className="text-[10px] font-medium text-teal-600">
+                  <div className="rounded-xl bg-[#EEF2FF] px-3 py-2 text-center">
+                    <p className="text-[10px] font-semibold text-[#1748EF]">
                       الكروت المتوقعة
                     </p>
 
-                    <p className="mt-0.5 text-lg font-bold text-teal-700">
+                    <p className="mt-0.5 text-lg font-black text-[#10275B]">
                       {selectionPreviewCount.toLocaleString(
                         "ar-EG",
                       )}
@@ -630,7 +630,7 @@ export default function BulkCardPrintingPage() {
                 {loading ? (
                   <div className="flex min-h-80 items-center justify-center">
                     <div className="text-center">
-                      <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+                      <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF2FF] text-[#1748EF]">
                         <FiRefreshCw
                           size={18}
                           className="animate-spin"
@@ -812,9 +812,9 @@ export default function BulkCardPrintingPage() {
 
                     {selectionMode ===
                       "all" && (
-                      <div className="rounded-2xl border border-teal-100 bg-teal-50/60 p-5">
+                      <div className="rounded-2xl border border-[#D9E1FF] bg-[#F5F7FF] p-5">
                         <div className="flex items-start gap-4">
-                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-teal-600 shadow-sm">
+                          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-white text-[#1748EF] shadow-sm">
                             <FiUsers
                               size={19}
                             />
@@ -829,7 +829,7 @@ export default function BulkCardPrintingPage() {
                               سيتم تجهيز كارت لكل طالب موجود حاليًا في النظام.
                             </p>
 
-                            <p className="mt-3 text-sm font-bold text-teal-700">
+                            <p className="mt-3 text-sm font-bold text-[#10275B]">
                               {
                                 students.length
                               }{" "}
@@ -860,7 +860,7 @@ export default function BulkCardPrintingPage() {
                           selectionPreviewCount ===
                           0
                         }
-                        className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-teal-600 px-6 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
+                        className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-6 text-sm font-bold text-white shadow-sm transition hover:bg-[#10275B] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#1748EF]/20 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
                       >
                         إنشاء الكروت
                         <FiArrowRight
@@ -929,7 +929,7 @@ function SingleStudentSelector({
               )
             }
             placeholder="ابحث بالاسم أو رقم الطالب..."
-            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+            className="h-12 w-full rounded-xl border border-[#DCE5F2] bg-[#F7F9FD] pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
           />
         </div>
       </div>
@@ -951,14 +951,14 @@ function SingleStudentSelector({
                 }
                 className={`flex w-full items-center gap-3 border-b border-slate-100 px-4 py-3 text-right last:border-0 transition ${
                   selected
-                    ? "bg-teal-50"
-                    : "hover:bg-slate-50"
+                    ? "bg-[#EEF2FF]"
+                    : "hover:bg-[#F7F9FD]"
                 }`}
               >
                 <div
                   className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
                     selected
-                      ? "bg-teal-600 text-white"
+                      ? "bg-[#1748EF] text-white"
                       : "bg-slate-100 text-slate-500"
                   }`}
                 >
@@ -977,7 +977,7 @@ function SingleStudentSelector({
                 </div>
 
                 {selected && (
-                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-teal-600 text-white">
+                  <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#1748EF] text-white">
                     <FiCheck size={14} />
                   </div>
                 )}
@@ -1025,7 +1025,7 @@ function MultipleStudentSelector({
               )
             }
             placeholder="ابحث بالاسم أو رقم الطالب..."
-            className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+            className="h-12 w-full rounded-xl border border-[#DCE5F2] bg-[#F7F9FD] pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
           />
         </div>
 
@@ -1033,7 +1033,7 @@ function MultipleStudentSelector({
           <button
             type="button"
             onClick={onSelectAll}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
+            className="h-11 rounded-xl border border-[#DCE5F2] bg-white px-3 text-xs font-semibold text-[#10275B] transition hover:bg-[#F7F9FD]"
           >
             تحديد الظاهر
           </button>
@@ -1041,7 +1041,7 @@ function MultipleStudentSelector({
           <button
             type="button"
             onClick={onClearAll}
-            className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-500 transition hover:bg-slate-50"
+            className="h-11 rounded-xl border border-[#DCE5F2] bg-white px-3 text-xs font-semibold text-slate-500 transition hover:bg-[#F7F9FD]"
           >
             إلغاء التحديد
           </button>
@@ -1051,7 +1051,7 @@ function MultipleStudentSelector({
       <div className="mb-3 flex items-center justify-between">
         <p className="text-xs text-slate-400">
           المحدد:{" "}
-          <span className="font-bold text-teal-600">
+          <span className="font-bold text-[#1748EF]">
             {selectedIds.length}
           </span>{" "}
           طالب
@@ -1084,14 +1084,14 @@ function MultipleStudentSelector({
                 }
                 className={`flex w-full items-center gap-3 border-b border-slate-100 px-4 py-3 text-right last:border-0 transition ${
                   selected
-                    ? "bg-teal-50"
-                    : "hover:bg-slate-50"
+                    ? "bg-[#EEF2FF]"
+                    : "hover:bg-[#F7F9FD]"
                 }`}
               >
                 <div
                   className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-md border ${
                     selected
-                      ? "border-teal-600 bg-teal-600 text-white"
+                      ? "border-[#1748EF] bg-[#1748EF] text-white"
                       : "border-slate-300 bg-white"
                   }`}
                 >
@@ -1103,7 +1103,7 @@ function MultipleStudentSelector({
                 <div
                   className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-xs font-bold ${
                     selected
-                      ? "bg-teal-100 text-teal-700"
+                      ? "bg-[#E4EAFE] text-[#10275B]"
                       : "bg-slate-100 text-slate-500"
                   }`}
                 >
@@ -1163,7 +1163,7 @@ function SelectionField({
                 event.target.value,
               )
             }
-            className="h-11 w-full appearance-none rounded-xl border border-slate-200 bg-white px-3 pl-9 text-sm text-slate-700 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+            className="h-12 w-full appearance-none rounded-xl border border-[#DCE5F2] bg-white px-3 pl-9 text-sm text-slate-700 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
           >
             <option value="">
               {placeholder}
@@ -1197,10 +1197,10 @@ function BulkPreview({
 }) {
   return (
     <section className="print:block">
-      <div className="mb-6 flex flex-col gap-4 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between print:hidden">
+      <div className="mb-6 flex flex-col gap-4 rounded-2xl border border-[#DCE5F2] bg-white p-5 shadow-[0_12px_30px_rgba(16,39,91,0.05)] sm:flex-row sm:items-center sm:justify-between print:hidden">
         <div>
           <div className="flex items-center gap-2">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#EEF2FF] text-[#1748EF]">
               <FiCheck size={17} />
             </div>
 
@@ -1211,7 +1211,7 @@ function BulkPreview({
 
               <p className="mt-1 text-xs text-slate-400">
                 تم تجهيز{" "}
-                <span className="font-bold text-teal-600">
+                <span className="font-bold text-[#1748EF]">
                   {cards.length}
                 </span>{" "}
                 كارت للطباعة.
@@ -1224,7 +1224,7 @@ function BulkPreview({
           <button
             type="button"
             onClick={onBack}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-[#DCE5F2] bg-white px-4 text-xs font-semibold text-[#10275B] transition hover:bg-[#F7F9FD]"
           >
             <FiArrowRight
               size={15}
@@ -1235,7 +1235,7 @@ function BulkPreview({
           <button
             type="button"
             onClick={onReset}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-xs font-semibold text-slate-600 transition hover:bg-slate-50"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-[#DCE5F2] bg-white px-4 text-xs font-semibold text-[#10275B] transition hover:bg-[#F7F9FD]"
           >
             <FiRefreshCw
               size={14}
@@ -1246,7 +1246,7 @@ function BulkPreview({
           <button
             type="button"
             onClick={onExportPdf}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-teal-200 bg-teal-50 px-4 text-xs font-semibold text-teal-700 transition hover:bg-teal-100"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-[#C8D2FF] bg-[#EEF2FF] px-4 text-xs font-semibold text-[#10275B] transition hover:bg-[#E4EAFE]"
           >
             <FiFileText
               size={15}
@@ -1257,7 +1257,7 @@ function BulkPreview({
           <button
             type="button"
             onClick={onPrint}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-xs font-semibold text-white shadow-sm transition hover:bg-teal-700"
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-[#1748EF] px-5 text-xs font-bold text-white shadow-sm transition hover:bg-[#10275B]"
           >
             <FiPrinter size={15} />
             طباعة
@@ -1320,7 +1320,7 @@ function BulkStudentCard({
         <div className="flex flex-1 gap-3 p-4">
           <div className="flex min-w-0 flex-1 flex-col">
             <div className="flex shrink-0 items-start gap-3">
-              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-teal-50 text-lg font-bold text-teal-700">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#EDF2FF] text-lg font-bold text-[#1748EF]">
                 {student.name.charAt(0)}
               </div>
 

@@ -111,13 +111,24 @@ export async function apiRequest<T = unknown>(
     if (response.status === 401 && typeof window !== "undefined") {
       if (!window.location.pathname.startsWith("/login")) {
         clearTokens();
-        window.location.href = "/login";
+        window.location.assign(
+          new URL("/login", window.location.origin).toString(),
+        );
       }
     }
 
-    const errorObj = (json as any)?.error;
-    const msg = errorObj?.message || json?.message || "حدث خطأ غير متوقع";
-    const code = errorObj?.code || (json as any)?.code || "SERVER_ERROR";
+    const errorObj =
+      typeof json === "object" && json !== null && "error" in json
+        ? (json as { error?: { message?: string; code?: string } }).error
+        : undefined;
+    const msg =
+      errorObj?.message ||
+      (json as { message?: string })?.message ||
+      "حدث خطأ غير متوقع";
+    const code =
+      errorObj?.code ||
+      (json as { code?: string })?.code ||
+      "SERVER_ERROR";
     throw new ApiError(msg, response.status, code);
   }
 

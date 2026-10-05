@@ -397,17 +397,17 @@ export default function DashboardPage() {
   };
 
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main className="educenter-dashboard min-h-screen bg-[#F5F7FC]">
       <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
         {/* Page Header */}
 
         <section className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <p className="mb-1 text-xs font-semibold text-teal-600">
+            <p className="mb-1 text-xs font-bold text-[#1748EF]">
               {todayLabel || "اليوم"}
             </p>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900 sm:text-3xl">
+            <h1 className="text-2xl font-extrabold tracking-tight text-[#10275B] sm:text-3xl">
               لوحة التحكم
             </h1>
 
@@ -459,10 +459,10 @@ export default function DashboardPage() {
             return (
               <div
                 key={stat.title}
-                className="group rounded-xl border border-slate-200 bg-white p-5 shadow-sm transition duration-200 hover:-translate-y-0.5 hover:border-slate-300 hover:shadow-md"
+                className="group rounded-2xl border border-[#E7ECF5] bg-white p-5 shadow-[0_5px_20px_rgba(15,35,75,.035)] transition duration-200 hover:-translate-y-0.5 hover:border-[#CFD9F1] hover:shadow-[0_12px_28px_rgba(15,35,75,.08)]"
               >
                 <div className="mb-4 flex items-start justify-between">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600 transition group-hover:bg-teal-100">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EDF2FF] text-[#1748EF] transition group-hover:bg-[#E1E9FF]">
                     <Icon size={19} />
                   </div>
 
@@ -509,7 +509,7 @@ export default function DashboardPage() {
         <section className="mt-6 grid gap-6 xl:grid-cols-3">
           {/* Attendance Chart */}
 
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm xl:col-span-2 sm:p-6">
+          <div className="rounded-2xl border border-[#E7ECF5] bg-white p-5 shadow-[0_5px_20px_rgba(15,35,75,.035)] xl:col-span-2 sm:p-6">
             <div className="mb-6 flex items-start justify-between">
               <div>
                 <h2 className="text-sm font-bold text-slate-900">
@@ -524,7 +524,7 @@ export default function DashboardPage() {
 
             <div className="mb-5 flex items-center gap-5">
               <div className="flex items-center gap-2">
-                <span className="h-2.5 w-2.5 rounded-full bg-teal-500" />
+                <span className="h-2.5 w-2.5 rounded-full bg-[#1748EF]" />
                 <span className="text-[10px] font-medium text-slate-500">
                   حضور
                 </span>
@@ -560,22 +560,26 @@ export default function DashboardPage() {
                     key={item.day}
                     className="flex h-full flex-1 flex-col items-center justify-end gap-2"
                   >
-                    <div className="flex h-[calc(100%-24px)] w-full max-w-10 items-end overflow-hidden rounded-t-md bg-slate-100">
-                      <div
-                        className={`w-full rounded-t-md transition-all duration-500 ${
-                          item.hasData
-                            ? "bg-teal-500 hover:bg-teal-600"
-                            : "bg-transparent"
-                        }`}
-                        style={{
-                          height: `${item.present}%`,
-                        }}
-                        title={
-                          item.hasData
-                            ? `حضور ${item.present}%`
-                            : "لا توجد سجلات"
-                        }
-                      />
+                    <div
+                      className="flex h-[calc(100%-24px)] w-full max-w-10 flex-col justify-end overflow-hidden rounded-t-lg bg-slate-50"
+                      title={
+                        item.hasData
+                          ? `حضور ${item.present}%، غياب ${item.absent}%`
+                          : "لا توجد سجلات"
+                      }
+                    >
+                      {item.hasData && (
+                        <>
+                          <div
+                            className="w-full bg-[#F3A9B2] transition-all duration-500"
+                            style={{ height: `${item.absent}%` }}
+                          />
+                          <div
+                            className="w-full bg-[#315FF1] transition-all duration-500"
+                            style={{ height: `${item.present}%` }}
+                          />
+                        </>
+                      )}
                     </div>
 
                     <span className="text-[9px] font-medium text-slate-400">
@@ -589,7 +593,7 @@ export default function DashboardPage() {
 
           {/* Today's Classes */}
 
-          <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+          <div className="rounded-2xl border border-[#E7ECF5] bg-white p-5 shadow-[0_5px_20px_rgba(15,35,75,.035)] sm:p-6">
             <div className="mb-5 flex items-start justify-between">
               <div>
                 <h2 className="text-sm font-bold text-slate-900">
@@ -601,7 +605,7 @@ export default function DashboardPage() {
                 </p>
               </div>
 
-              <span className="rounded-full bg-teal-50 px-2 py-1 text-[10px] font-semibold text-teal-600">
+              <span className="rounded-full bg-[#EDF2FF] px-2 py-1 text-[10px] font-semibold text-[#1748EF]">
                 {todayLessonCount > 0
                   ? `${todayLessonCount.toLocaleString(
                       "en-US",
@@ -632,9 +636,9 @@ export default function DashboardPage() {
                 {classItems.map((item) => (
                   <div
                     key={item.id}
-                    className="group flex items-center gap-3 rounded-xl border border-slate-100 p-3 transition hover:border-teal-100 hover:bg-teal-50/40"
+                    className="group flex items-center gap-3 rounded-xl border border-slate-100 p-3 transition hover:border-[#DCE5FF] hover:bg-[#EDF2FF]/40"
                   >
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition group-hover:bg-teal-100 group-hover:text-teal-600">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-500 transition group-hover:bg-[#E2E9FF] group-hover:text-[#1748EF]">
                       <FiBookOpen size={16} />
                     </div>
 
@@ -671,7 +675,7 @@ export default function DashboardPage() {
 
             <Link
               href="/lessons"
-              className="mt-4 flex w-full items-center justify-center rounded-lg border border-slate-200 py-2.5 text-xs font-semibold text-slate-500 transition hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700"
+              className="mt-4 flex w-full items-center justify-center rounded-xl border border-slate-200 py-2.5 text-xs font-semibold text-slate-500 transition hover:border-[#CCD8FF] hover:bg-[#EDF2FF] hover:text-[#1748EF]"
             >
               عرض جدول الحصص
             </Link>
@@ -680,7 +684,7 @@ export default function DashboardPage() {
 
         {/* Quick Actions */}
 
-        <section className="mt-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <section className="mt-6 rounded-2xl border border-[#E7ECF5] bg-white p-5 shadow-[0_5px_20px_rgba(15,35,75,.035)] sm:p-6">
           <div className="mb-5">
             <h2 className="text-sm font-bold text-slate-900">
               إجراءات سريعة
@@ -699,9 +703,9 @@ export default function DashboardPage() {
                 <Link
                   key={action.label}
                   href={action.href}
-                  className="group flex items-center gap-3 rounded-xl border border-slate-200 p-4 text-right transition duration-200 hover:-translate-y-0.5 hover:border-teal-200 hover:bg-teal-50/50 hover:shadow-sm"
+                  className="group flex items-center gap-3 rounded-xl border border-slate-200 p-4 text-right transition duration-200 hover:-translate-y-0.5 hover:border-[#CCD8FF] hover:bg-[#EDF2FF]/50 hover:shadow-sm"
                 >
-                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500 transition group-hover:bg-teal-100 group-hover:text-teal-600">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-slate-100 text-slate-500 transition group-hover:bg-[#E2E9FF] group-hover:text-[#1748EF]">
                     <Icon size={17} />
                   </span>
 

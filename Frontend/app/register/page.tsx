@@ -1,7 +1,9 @@
 
 "use client";
 
+import Image from "next/image";
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
   FiArrowLeft,
@@ -101,86 +103,68 @@ export default function RegisterPage() {
   };
 
   return (
-    <main dir="rtl" className="min-h-screen bg-slate-50">
-      <div className="grid min-h-screen lg:grid-cols-2">
-        {/* Brand Side */}
-        <section className="relative hidden overflow-hidden bg-teal-600 lg:flex">
-          <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-white/10" />
-
-          <div className="absolute -bottom-40 -left-32 h-[28rem] w-[28rem] rounded-full bg-white/10" />
-
-          <div className="absolute right-1/2 top-1/2 h-72 w-72 -translate-y-1/2 translate-x-1/2 rounded-full border border-white/10" />
-
-          <div className="relative z-10 flex w-full flex-col justify-between p-12 xl:p-16">
-            {/* Brand */}
-            <div>
-              <div className="flex items-center gap-3">
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-white text-teal-600 shadow-sm">
-                  <LuGraduationCap
-                    size={23}
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  />
-                </div>
-
-                <div>
-                  <p className="text-lg font-bold text-white">مَنارة</p>
-
-                  <p className="text-xs text-teal-100">
-                    نظام إدارة المركز التعليمي
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="max-w-lg">
-              <p className="mb-4 text-sm font-medium text-teal-100">
+    <main dir="rtl" className="min-h-screen bg-[#f5f7fc]">
+      <div className="mx-auto grid min-h-screen max-w-[1600px] gap-5 p-3 sm:p-5 lg:grid-cols-[.9fr_1.1fr] lg:gap-7 lg:p-7">
+        <section className="relative flex min-h-[230px] overflow-hidden rounded-[24px] bg-[#10275b] shadow-[0_22px_55px_rgba(14,36,87,.16)] sm:min-h-[285px] lg:min-h-[calc(100vh-56px)]">
+          <Image
+            src="/images/nB1w5is9AKQCaSU5X77jCYDld4ynjirQvsTeZX7v7EJn5Wd8fQ-sc3rlNcrP95coYUyeJf8tKDkwXmDBIqIeFg1PxU9n3FL5fopLHdriIaJFkDv3J4KMCYEkqFD8oC0T7cIJ-a-rWDuX1Fn5wRaTNqlK0n7vBVBlDPkAu-5rlpeScv.jfif"
+            alt="طلاب يتعلمون ويستعدون لمستقبلهم"
+            fill
+            priority
+            sizes="(max-width: 1024px) 100vw, 48vw"
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#071538]/95 via-[#10275b]/42 to-[#10275b]/5" />
+          <div className="relative z-10 flex w-full flex-col justify-between p-6 sm:p-9 lg:p-12 xl:p-14">
+            <div className="flex items-center justify-between gap-3">
+              <Link href="/" className="flex w-fit items-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white shadow-lg backdrop-blur-md">
+                <span className="grid h-10 w-10 place-items-center rounded-xl bg-white text-[#1748ef]">
+                  <LuGraduationCap size={22} strokeWidth={2} aria-hidden="true" />
+                </span>
+                <span>
+                  <strong className="block text-base">EduCenter</strong>
+                  <small className="text-[10px] text-white/75">نظام إدارة المركز التعليمي</small>
+                </span>
+              </Link>
+              <span className="hidden rounded-full border border-white/20 bg-white/10 px-3 py-2 text-[10px] font-semibold text-white backdrop-blur sm:block">
                 ابدأ الآن بسهولة
-              </p>
-
-              <h1 className="text-4xl font-bold leading-tight tracking-tight text-white xl:text-5xl">
-                أنشئ حسابك وابدأ إدارة مركزك التعليمي.
-              </h1>
-
-              <p className="mt-6 max-w-md text-sm leading-7 text-teal-50">
-                أنشئ حسابًا جديدًا للوصول إلى لوحة التحكم وإدارة
-                الطلاب والمجموعات والحصص والحضور والمدفوعات والامتحانات
-                من مكان واحد.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-2">
-                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white">
-                  الطلاب
-                </span>
-
-                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white">
-                  الحضور
-                </span>
-
-                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white">
-                  المدفوعات
-                </span>
-
-                <span className="rounded-full border border-white/15 bg-white/10 px-3 py-1.5 text-xs text-white">
-                  الامتحانات
-                </span>
-              </div>
+              </span>
             </div>
 
-            {/* Footer */}
-            <p className="text-xs text-teal-100">
-              © 2026 مَنارة. جميع الحقوق محفوظة.
+            <div className="max-w-lg pb-1">
+              <p className="mb-3 text-xs font-bold text-[#b7caff] sm:text-sm">
+                كل تفاصيل مركزك، بخطوة واحدة
+              </p>
+              <h1 className="text-3xl font-black leading-[1.25] tracking-tight text-white xl:text-5xl">
+                أنشئ حسابك،<br />
+                <span className="text-[#9eb9ff]">وابنِ تجربة تعليمية أفضل.</span>
+              </h1>
+              <p className="mt-4 max-w-md text-xs leading-7 text-white/80 sm:text-sm">
+                مساحة واحدة لإدارة الطلاب والمجموعات والحصص والحضور، كي تمنح وقتك لما يصنع فرقًا حقيقيًا.
+              </p>
+              <div className="mt-5 hidden flex-wrap gap-2 sm:flex">
+                {["الطلاب", "المجموعات", "الحضور", "النتائج"].map((feature) => (
+                  <span key={feature} className="rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-semibold text-white backdrop-blur">
+                    {feature}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <p className="hidden text-[10px] text-white/60 sm:block">
+              © 2026 EduCenter. جميع الحقوق محفوظة.
             </p>
+          </div>
+          <div className="absolute bottom-8 left-8 hidden rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white shadow-lg backdrop-blur-md xl:block">
+            <span className="block text-[10px] text-white/65">خطوة أقرب إلى النجاح</span>
+            <strong className="mt-1 block text-sm">مستقبل تعليمي أكثر إشراقًا</strong>
           </div>
         </section>
 
-        {/* Register */}
-        <section className="flex min-h-screen items-center justify-center px-5 py-10 sm:px-8">
+        <section className="flex min-h-[640px] items-center justify-center rounded-[24px] border border-[#e8edf7] bg-white px-5 py-10 shadow-[0_14px_42px_rgba(14,36,87,.06)] sm:px-8 lg:min-h-[calc(100vh-56px)] lg:px-10 xl:px-14">
           <div className="w-full max-w-md">
             {/* Mobile Brand */}
             <div className="mb-8 flex items-center gap-3 lg:hidden">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-teal-600 text-white shadow-sm">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#1748EF] text-white shadow-sm">
                 <LuGraduationCap
                   size={23}
                   strokeWidth={2}
@@ -190,7 +174,7 @@ export default function RegisterPage() {
 
               <div>
                 <p className="text-lg font-bold text-slate-900">
-                  مَنارة
+                  EduCenter
                 </p>
 
                 <p className="text-xs text-slate-400">
@@ -201,7 +185,7 @@ export default function RegisterPage() {
 
             {/* Heading */}
             <div className="mb-7">
-              <p className="mb-2 text-sm font-medium text-teal-600">
+              <p className="mb-2 text-sm font-medium text-[#1748EF]">
                 حساب جديد
               </p>
 
@@ -210,7 +194,7 @@ export default function RegisterPage() {
               </h2>
 
               <p className="mt-2 text-sm leading-6 text-slate-500">
-                أدخل بياناتك لإنشاء حساب جديد في مَنارة.
+                أدخل بياناتك لإنشاء حساب جديد في EduCenter.
               </p>
             </div>
 
@@ -240,7 +224,7 @@ export default function RegisterPage() {
                     }}
                     placeholder="أدخل الاسم بالكامل"
                     autoComplete="name"
-                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                   />
                 </div>
               </div>
@@ -270,7 +254,7 @@ export default function RegisterPage() {
                     }}
                     placeholder="admin@example.com"
                     autoComplete="email"
-                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                   />
                 </div>
               </div>
@@ -301,7 +285,7 @@ export default function RegisterPage() {
                     placeholder="01xxxxxxxxx"
                     autoComplete="tel"
                     dir="ltr"
-                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-4 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                   />
                 </div>
               </div>
@@ -331,7 +315,7 @@ export default function RegisterPage() {
                     }}
                     placeholder="أدخل كلمة المرور"
                     autoComplete="new-password"
-                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-11 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-11 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                   />
 
                   <button
@@ -382,7 +366,7 @@ export default function RegisterPage() {
                     }}
                     placeholder="أعد إدخال كلمة المرور"
                     autoComplete="new-password"
-                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-11 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                    className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-11 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                   />
 
                   <button
@@ -422,7 +406,7 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="group mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-teal-600 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
+                className="group mt-2 flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[#1748EF] text-sm font-semibold text-white shadow-[0_8px_18px_rgba(23,72,239,.18)] transition hover:bg-[#123BD0] active:scale-[0.99] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 {loading ? (
                   <>
@@ -449,7 +433,7 @@ export default function RegisterPage() {
                 <button
                   type="button"
                   onClick={() => router.push("/login")}
-                  className="font-semibold text-teal-600 transition hover:text-teal-700"
+                  className="font-semibold text-[#1748EF] transition hover:text-[#123BD0]"
                 >
                   تسجيل الدخول
                 </button>

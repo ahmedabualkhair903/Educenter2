@@ -187,7 +187,7 @@ setGroupFilter("الكل");
 if (isLoading) {
 return ( <main
      dir="rtl"
-     className="min-h-screen bg-slate-50"
+     className="min-h-screen bg-[#F4F7FC] text-[#10275B]"
    > <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8"> <div className="mb-6"> <div className="h-4 w-32 animate-pulse rounded bg-slate-200" />
 
 
@@ -220,7 +220,7 @@ return ( <main
 if (error) {
 return ( <main
      dir="rtl"
-     className="min-h-screen bg-slate-50"
+     className="min-h-screen bg-[#F4F7FC] text-[#10275B]"
    > <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8"> <div className="rounded-xl border border-red-100 bg-red-50 p-6 text-center"> <h1 className="text-sm font-bold text-red-700">
 تعذر تحميل بيانات الانصراف </h1>
 
@@ -242,7 +242,7 @@ return ( <main
 
 return ( <main
    dir="rtl"
-   className="min-h-screen bg-slate-50"
+   className="min-h-screen bg-[#F4F7FC] text-[#10275B]"
  > <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
 {/* Header */}
 
@@ -258,12 +258,12 @@ return ( <main
 
           <span>/</span>
 
-          <span className="text-teal-600">
+          <span className="text-[#1748EF]">
             الانصراف
           </span>
         </div>
 
-        <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+        <h1 className="text-2xl font-extrabold tracking-tight text-[#10275B]">
           تسجيل الانصراف
         </h1>
 
@@ -277,7 +277,7 @@ return ( <main
         type="button"
         onClick={checkOutAll}
         disabled={insideCount === 0}
-        className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-teal-500/20 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
+        className="inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-bold text-white shadow-[0_10px_24px_-12px_rgba(23,72,239,0.8)] transition hover:bg-[#1238C7] active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-[#1748EF]/20 disabled:cursor-not-allowed disabled:bg-slate-200 disabled:text-slate-400"
       >
         <FiLogOut size={16} />
 
@@ -299,7 +299,7 @@ return ( <main
         icon={<FiClock size={19} />}
         label="داخل المركز"
         value={insideCount}
-        className="text-teal-600"
+        className="text-[#1748EF]"
       />
 
       <StatCard
@@ -312,13 +312,13 @@ return ( <main
 
     {/* Current Status */}
 
-    <section className="mb-6 rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <section className="mb-6 rounded-3xl border border-[#10275B] bg-[#10275B] p-5 shadow-[0_20px_45px_-28px_rgba(16,39,91,0.65)]">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <div className="flex items-center gap-3">
           <div
             className={`flex h-10 w-10 items-center justify-center rounded-lg ${
               insideCount > 0
-                ? "bg-teal-50 text-teal-600"
+                ? "bg-white/10 text-white"
                 : "bg-emerald-50 text-emerald-600"
             }`}
           >
@@ -330,11 +330,11 @@ return ( <main
           </div>
 
           <div>
-            <p className="text-xs text-slate-400">
+            <p             className="text-xs text-blue-100/70">
               حالة الانصراف الحالية
             </p>
 
-            <p className="mt-0.5 text-sm font-semibold text-slate-800">
+            <p className="mt-0.5 text-sm font-bold text-white">
               {insideCount > 0
                 ? `يوجد ${insideCount.toLocaleString(
                     "ar-EG",
@@ -347,14 +347,14 @@ return ( <main
         <span
           className={`inline-flex w-fit items-center gap-1.5 rounded-full px-3 py-1.5 text-[11px] font-semibold ${
             insideCount > 0
-              ? "bg-teal-50 text-teal-700"
+              ? "bg-white/10 text-blue-100"
               : "bg-emerald-50 text-emerald-700"
           }`}
         >
           <span
             className={`h-1.5 w-1.5 rounded-full ${
               insideCount > 0
-                ? "bg-teal-500"
+                ? "bg-blue-300"
                 : "bg-emerald-500"
             }`}
           />
@@ -368,7 +368,7 @@ return ( <main
 
     {/* Main Table */}
 
-    <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <section className="overflow-hidden rounded-3xl border border-[#E1E8F2] bg-white shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)]">
       {/* Filters */}
 
       <div className="border-b border-slate-100 p-4 sm:p-5">
@@ -387,7 +387,7 @@ return ( <main
               }
               placeholder="ابحث باسم الطالب أو رقم الطالب أو رقم الهاتف..."
               aria-label="البحث في سجل الانصراف"
-              className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+              className="h-10 w-full rounded-xl border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
             />
           </div>
 
@@ -398,7 +398,7 @@ return ( <main
                 setGroupFilter(event.target.value)
               }
               aria-label="المجموعة"
-              className="h-10 min-w-40 appearance-none rounded-lg border border-slate-200 bg-white px-3 pl-9 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+              className="h-10 min-w-40 appearance-none rounded-xl border border-slate-200 bg-white px-3 pl-9 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
             >
               {groups.map((group) => (
                 <option
@@ -452,7 +452,7 @@ return ( <main
             <button
               type="button"
               onClick={clearFilters}
-              className="mt-4 text-xs font-semibold text-teal-600 hover:text-teal-700"
+              className="mt-4 text-xs font-semibold text-[#1748EF] hover:text-[#123BD0]"
             >
               مسح الفلاتر
             </button>
@@ -465,7 +465,7 @@ return ( <main
           <div className="overflow-x-auto">
             <table className="w-full min-w-[950px] text-right">
               <thead>
-                <tr className="border-b border-slate-100 bg-slate-50/70">
+                <tr className="border-b border-[#EAF0F7] bg-[#F4F7FC]">
                   <th className="px-5 py-3 text-xs font-semibold text-slate-500">
                     الطالب
                   </th>
@@ -603,8 +603,8 @@ return ( <main
                             تم الانصراف
                           </span>
                         ) : (
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-teal-50 px-2.5 py-1 text-[11px] font-semibold text-teal-700">
-                            <span className="h-1.5 w-1.5 rounded-full bg-teal-500" />
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#EDF2FF] px-2.5 py-1 text-[11px] font-semibold text-[#1748EF]">
+                            <span className="h-1.5 w-1.5 rounded-full bg-[#1748EF]" />
 
                             داخل المركز
                           </span>
@@ -633,7 +633,7 @@ return ( <main
                             disabled={
                               !hasCheckIn(record)
                             }
-                            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-md bg-slate-100 px-3 text-xs font-semibold text-slate-600 transition hover:bg-teal-50 hover:text-teal-700 active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-teal-500/10 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-300"
+                            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-md bg-slate-100 px-3 text-xs font-semibold text-slate-600 transition hover:bg-[#EDF2FF] hover:text-[#1748EF] active:scale-[0.98] focus:outline-none focus:ring-4 focus:ring-[#1748EF]/10 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-300"
                           >
                             <FiLogOut size={14} />
 
@@ -660,7 +660,7 @@ return ( <main
               </span>
             </p>
 
-            <span className="flex w-fit items-center gap-1.5 rounded-md bg-teal-50 px-3 py-1.5 text-xs font-semibold text-teal-700">
+            <span className="flex w-fit items-center gap-1.5 rounded-md bg-[#EDF2FF] px-3 py-1.5 text-xs font-semibold text-[#1748EF]">
               <FiUsers size={13} />
 
               متابعة الانصراف
@@ -695,17 +695,17 @@ return ( <main
     )}
 
     {insideCount > 0 && (
-      <div className="mt-4 flex items-start gap-3 rounded-xl border border-teal-100 bg-teal-50 p-4">
-        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-teal-600">
+      <div className="mt-4 flex items-start gap-3 rounded-xl border border-[#DCE5FF] bg-[#EDF2FF] p-4">
+        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#1748EF]">
           <FiClock size={17} />
         </div>
 
         <div>
-          <p className="text-sm font-semibold text-teal-800">
+          <p className="text-sm font-semibold text-[#10275B]">
             يوجد طلاب لم يسجلوا الانصراف بعد
           </p>
 
-          <p className="mt-1 text-xs leading-5 text-teal-600">
+          <p className="mt-1 text-xs leading-5 text-[#1748EF]">
             يمكنك تسجيل الانصراف لكل طالب بشكل
             منفصل أو استخدام زر{" "}
             <span className="font-semibold">
@@ -738,7 +738,7 @@ label: string;
 value: number;
 className: string;
 }) {
-return ( <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm"> <div className="flex items-center justify-between"> <div> <p className="text-sm text-slate-500">
+return ( <div className="rounded-2xl border border-[#E1E8F2] bg-white p-5 shadow-[0_12px_32px_-24px_rgba(16,39,91,0.3)]"> <div className="flex items-center justify-between"> <div> <p className="text-sm text-slate-500">
 {label} </p>
 
 ```

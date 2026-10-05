@@ -161,24 +161,24 @@ router.push(href);
 };
 
 return (
-<> <header className="sticky top-0 z-30 h-16 border-b border-slate-200 bg-white/95 backdrop-blur"> <div className="flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
+<> <header className="educenter-topbar sticky top-0 z-30 h-[72px] border-b border-[#E7ECF5] bg-white/95 backdrop-blur"> <div className="flex h-full items-center justify-between px-4 sm:px-6 lg:px-8">
 {/* Right Side */} <div className="flex min-w-0 items-center gap-3">
 {/* Mobile Menu */} <button
            type="button"
            onClick={onMenuClick}
-           className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-slate-500 transition hover:bg-slate-100 hover:text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-100 lg:hidden"
+           className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-slate-500 transition hover:bg-[#EDF2FF] hover:text-[#10275B] focus:outline-none focus:ring-2 focus:ring-[#1748EF]/10 lg:hidden"
            aria-label="فتح القائمة الجانبية"
            aria-controls="dashboard-sidebar"
          > <FiMenu size={20} /> </button>
 
 
         <div className="min-w-0">
-          <p className="truncate text-sm font-semibold text-slate-800">
-            نظام إدارة المركز
+          <p className="truncate text-sm font-bold text-[#10275B]">
+            منصة إدارة التعليم
           </p>
 
           <p className="hidden truncate text-[10px] text-slate-400 sm:block">
-            مَنارة
+            EduCenter
           </p>
         </div>
       </div>
@@ -190,10 +190,10 @@ return (
           type="button"
           onClick={openSearch}
           className={[
-            "flex h-9 w-9 items-center justify-center rounded-lg transition",
+            "flex h-10 w-10 items-center justify-center rounded-xl transition",
             searchOpen
-              ? "bg-teal-50 text-teal-600"
-              : "text-slate-400 hover:bg-slate-100 hover:text-slate-700",
+              ? "bg-[#EDF2FF] text-[#1748EF]"
+              : "text-slate-400 hover:bg-[#EDF2FF] hover:text-[#10275B]",
           ].join(" ")}
           aria-label="بحث"
           aria-expanded={searchOpen}
@@ -205,7 +205,7 @@ return (
         {/* Notifications */}
         <Link
           href="/messages"
-          className="relative flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-100"
+          className="relative flex h-9 w-9 items-center justify-center rounded-xl text-slate-400 transition hover:bg-[#EDF2FF] hover:text-[#10275B] focus:outline-none focus:ring-2 focus:ring-[#1748EF]/10"
           aria-label="الرسائل و التواصلات"
           title="الرسائل"
         >
@@ -217,14 +217,14 @@ return (
         {/* User */}
         <div className="flex items-center gap-2">
           <div
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal-100 text-xs font-bold text-teal-700"
+            className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#E8EEFF] text-xs font-extrabold text-[#2450EE]"
             aria-hidden="true"
           >
             م
           </div>
 
           <div className="hidden text-right md:block">
-            <p className="text-xs font-semibold text-slate-700">
+            <p className="text-xs font-semibold text-[#10275B]">
               مدير المركز
             </p>
 
@@ -253,12 +253,12 @@ return (
       />
 
       <div className="relative mx-auto mt-20 w-[calc(100%-2rem)] max-w-2xl sm:mt-24">
-        <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
+        <div className="overflow-hidden rounded-2xl border border-[#DCE7F0] bg-white shadow-2xl">
           {/* Search Input */}
           <div className="flex items-center gap-3 border-b border-slate-100 px-4">
             <FiSearch
               size={19}
-              className="shrink-0 text-teal-500"
+              className="shrink-0 text-[#1748EF]"
             />
 
             <input
@@ -274,13 +274,13 @@ return (
                 }
               }}
               placeholder="ابحث في النظام..."
-              className="h-14 min-w-0 flex-1 bg-transparent text-sm text-slate-700 outline-none placeholder:text-slate-400"
+              className="h-14 min-w-0 flex-1 bg-transparent text-sm text-[#10275B] outline-none placeholder:text-slate-400"
             />
 
             <button
               type="button"
               onClick={closeSearch}
-              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+              className="flex h-8 w-8 shrink-0 items-center justify-center rounded-xl text-slate-400 transition hover:bg-[#EDF2FF] hover:text-[#10275B]"
               aria-label="إغلاق البحث"
             >
               <FiX size={18} />
@@ -318,7 +318,7 @@ return (
                       className={[
                         "group flex w-full items-center gap-3 rounded-xl px-3 py-3 text-right transition",
                         active
-                          ? "bg-teal-50"
+                          ? "bg-[#EDF2FF]"
                           : "hover:bg-slate-50",
                       ].join(" ")}
                     >
@@ -326,8 +326,8 @@ return (
                         className={[
                           "flex h-9 w-9 shrink-0 items-center justify-center rounded-lg",
                           active
-                            ? "bg-white text-teal-600 shadow-sm"
-                            : "bg-slate-100 text-slate-400 group-hover:bg-white group-hover:text-teal-600 group-hover:shadow-sm",
+                            ? "bg-white text-[#1748EF] shadow-sm"
+                            : "bg-slate-100 text-slate-400 group-hover:bg-white group-hover:text-[#1748EF] group-hover:shadow-sm",
                         ].join(" ")}
                       >
                         <FiSearch size={16} />
@@ -338,8 +338,8 @@ return (
                           className={[
                             "text-sm font-semibold",
                             active
-                              ? "text-teal-700"
-                              : "text-slate-700",
+                              ? "text-[#1748EF]"
+                              : "text-[#10275B]",
                           ].join(" ")}
                         >
                           {item.label}
@@ -352,7 +352,7 @@ return (
 
                       <FiChevronLeft
                         size={15}
-                        className="text-slate-300 transition group-hover:text-teal-500"
+                        className="text-slate-300 transition group-hover:text-[#1748EF]"
                       />
                     </button>
                   );
@@ -364,7 +364,7 @@ return (
                   <FiSearch size={20} />
                 </div>
 
-                <p className="mt-3 text-sm font-semibold text-slate-700">
+                <p className="mt-3 text-sm font-semibold text-[#10275B]">
                   لا توجد نتائج
                 </p>
 

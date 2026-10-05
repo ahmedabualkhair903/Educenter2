@@ -63,9 +63,9 @@ export default async function StudentCardDesignerPage({
     : "غير محددة";
 
   return (
-    <main
+    <div
       dir="rtl"
-      className="min-h-screen bg-slate-50"
+      className="min-h-screen bg-[#F3F6FC] [&_main]:!bg-[#F3F6FC]"
     >
       <StudentCardDesigner
         student={student}
@@ -75,6 +75,6 @@ export default async function StudentCardDesignerPage({
         initialDesign={design}
         parentQrCodeUrl={parentQrCodeUrl}
       />
-    </main>
+    </div>
   );
 }

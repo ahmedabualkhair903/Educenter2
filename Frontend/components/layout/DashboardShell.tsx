@@ -26,6 +26,8 @@ export default function DashboardShell({
     pathname === "/login" ||
     pathname === "/register";
 
+  const isPublicPage = pathname === "/";
+
   /*
    * Parent Portal has its own mobile-first layout
    * and must never render the Admin navigation.
@@ -41,13 +43,13 @@ export default function DashboardShell({
     setSidebarOpen((current) => !current);
   };
 
-  if (isAuthPage || isParentPortal) {
+  if (isAuthPage || isParentPortal || isPublicPage) {
     return <>{children}</>;
   }
 
   return (
     <div
-      className="min-h-screen bg-slate-50"
+      className="educenter-shell min-h-screen bg-[#F5F7FC]"
       dir="rtl"
     >
       <div className="min-h-screen lg:flex">

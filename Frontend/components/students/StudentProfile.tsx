@@ -258,13 +258,13 @@ export default function StudentProfile({
   return (
     <main
       dir="rtl"
-      className="min-h-screen bg-slate-50"
+      className="min-h-screen bg-[#F5F7FC]"
     >
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <div className="mb-5 flex items-center gap-2 text-xs text-slate-400">
           <Link
             href="/students"
-            className="transition hover:text-teal-600"
+            className="transition hover:text-[#1748EF]"
           >
             الطلاب
           </Link>
@@ -280,7 +280,7 @@ export default function StudentProfile({
           <div className="p-5 sm:p-6">
             <div className="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
               <div className="flex min-w-0 items-center gap-4">
-                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-teal-50 text-lg font-bold text-teal-700">
+                <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-[#EDF2FF] text-lg font-bold text-[#1748EF]">
                   {initials || (
                     <FiUser size={24} />
                   )}
@@ -361,7 +361,7 @@ export default function StudentProfile({
                     onClick={() =>
                       onEdit(student)
                     }
-                    className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white transition hover:bg-teal-700 active:scale-[0.98]"
+                    className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-4 text-sm font-semibold text-white transition hover:bg-[#123BD0] active:scale-[0.98]"
                   >
                     <FiEdit2 size={15} />
                     تعديل البيانات
@@ -382,7 +382,7 @@ export default function StudentProfile({
                   }
                   className={`relative px-4 py-4 text-xs font-semibold transition ${
                     activeTab === tab.id
-                      ? "text-teal-700"
+                      ? "text-[#1748EF]"
                       : "text-slate-400 hover:text-slate-700"
                   }`}
                 >
@@ -390,7 +390,7 @@ export default function StudentProfile({
 
                   {activeTab ===
                     tab.id && (
-                    <span className="absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-teal-600" />
+                    <span className="absolute inset-x-3 bottom-0 h-0.5 rounded-full bg-[#1748EF]" />
                   )}
                 </button>
               ))}
@@ -488,7 +488,7 @@ function OverviewSection({
             "ar-EG",
           )} ج.م`}
           description={`${paymentPercentage}% من المطلوب`}
-          className="text-teal-600"
+          className="text-[#1748EF]"
         />
 
         <StatCard
@@ -615,7 +615,7 @@ function OverviewSection({
 
             <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-100">
               <div
-                className="h-full rounded-full bg-teal-500 transition-all"
+                className="h-full rounded-full bg-[#1748EF] transition-all"
                 style={{
                   width: `${paymentPercentage}%`,
                 }}
@@ -833,7 +833,7 @@ function GradesSection({
           label="متوسط الأداء"
           value={`${average}%`}
           description="للاختبارات التي لها نتيجة"
-          className="text-teal-600"
+          className="text-[#1748EF]"
         />
 
         <StatCard
@@ -1020,7 +1020,7 @@ function AttendanceSection({
         <StatCard
           label="نسبة الحضور"
           value={`${stats.percentage}%`}
-          className="text-teal-600"
+          className="text-[#1748EF]"
         />
       </section>
 
@@ -1246,7 +1246,7 @@ function ActivitySection({
                     <span className="absolute right-[15px] top-9 h-[calc(100%+16px)] w-px bg-slate-200" />
                   )}
 
-                  <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+                  <div className="relative z-10 flex h-8 w-8 shrink-0 items-center justify-center rounded-xl bg-[#EDF2FF] text-[#1748EF]">
                     {
                       activityTypeIcons[
                         activity.type

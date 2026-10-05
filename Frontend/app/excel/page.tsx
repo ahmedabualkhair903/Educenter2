@@ -511,7 +511,7 @@ export default function ExcelPage() {
   };
 
   return (
-    <main dir="rtl" className="min-h-screen bg-slate-50">
+    <main dir="rtl" className="min-h-screen bg-[#F4F7FC] text-[#10275B]">
       <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
         {/* Header */}
 
@@ -519,12 +519,12 @@ export default function ExcelPage() {
           <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400">
             <span>الرئيسية</span>
             <span>/</span>
-            <span className="text-teal-600">
+            <span className="text-[#1748EF]">
               Excel
             </span>
           </div>
 
-          <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+          <h1 className="text-2xl font-extrabold tracking-tight text-[#10275B]">
             Excel
           </h1>
 
@@ -536,17 +536,17 @@ export default function ExcelPage() {
 
         {/* Info */}
 
-        <section className="mb-6 flex gap-3 rounded-xl border border-blue-100 bg-blue-50/70 p-4">
-          <div className="mt-0.5 shrink-0 text-blue-600">
+        <section className="mb-6 flex gap-3 rounded-2xl border border-[#DDE7FF] bg-[#EEF3FF] p-4">
+          <div className="mt-0.5 shrink-0 text-[#1748EF]">
             <FiInfo size={18} />
           </div>
 
           <div>
-            <h2 className="text-sm font-bold text-blue-900">
+            <h2 className="text-sm font-bold text-[#10275B]">
               قبل استيراد البيانات
             </h2>
 
-            <p className="mt-1 text-xs leading-6 text-blue-700">
+            <p className="mt-1 text-xs leading-6 text-[#33496D]">
               ارفع الملف ثم راجع المعاينة والطلاب
               المتعرف عليهم والبيانات المكررة أو
               غير المعروفة قبل الاعتماد.
@@ -556,7 +556,7 @@ export default function ExcelPage() {
 
         {/* Import */}
 
-        <section className="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <section className="mb-6 overflow-hidden rounded-3xl border border-[#E1E8F2] border-t-4 border-t-[#1748EF] bg-white p-5 shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)] sm:p-6">
           <div className="mb-5">
             <h2 className="text-base font-bold text-slate-900">
               استيراد البيانات
@@ -619,10 +619,10 @@ export default function ExcelPage() {
               }
             }}
             className={[
-              "cursor-pointer rounded-xl border-2 border-dashed p-8 text-center transition",
+              "cursor-pointer rounded-2xl border-2 border-dashed p-8 text-center transition",
               isDragging
-                ? "border-teal-400 bg-teal-50"
-                : "border-slate-200 bg-slate-50 hover:border-teal-300 hover:bg-teal-50/40",
+                ? "border-[#1748EF] bg-[#EEF3FF]"
+                : "border-[#D8E1EF] bg-[#F4F7FC] hover:border-[#AFC0F5] hover:bg-[#EEF3FF]/60",
             ].join(" ")}
           >
             <input
@@ -633,7 +633,7 @@ export default function ExcelPage() {
               className="hidden"
             />
 
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-white text-teal-600 shadow-sm">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-[#1748EF] shadow-sm">
               <FiUpload size={21} />
             </div>
 
@@ -653,9 +653,9 @@ export default function ExcelPage() {
           {/* Selected File */}
 
           {selectedFile && (
-            <div className="mt-4 flex items-center justify-between gap-3 rounded-lg border border-teal-100 bg-teal-50/60 p-3">
+            <div className="mt-4 flex items-center justify-between gap-3 rounded-xl border border-[#DDE7FF] bg-[#EEF3FF]/70 p-3">
               <div className="flex min-w-0 items-center gap-3">
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white text-teal-600">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white text-[#1748EF]">
                   <FiFileText size={17} />
                 </div>
 
@@ -725,7 +725,7 @@ export default function ExcelPage() {
                 isPreviewLoading
               }
               onClick={createPreview}
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-teal-200 bg-teal-50 px-5 text-xs font-semibold text-teal-700 transition hover:bg-teal-100 disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-[#C8D5FF] bg-[#EEF3FF] px-5 text-xs font-bold text-[#1238C7] transition hover:bg-[#DDE7FF] disabled:cursor-not-allowed disabled:bg-slate-100 disabled:text-slate-400"
             >
               <FiFileText size={15} />
 
@@ -743,7 +743,7 @@ export default function ExcelPage() {
                 validPreviewRows.length === 0
               }
               onClick={handleImport}
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-xs font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-xs font-bold text-white transition hover:bg-[#1238C7] disabled:cursor-not-allowed disabled:bg-slate-300"
             >
               <FiCheck size={15} />
 
@@ -757,8 +757,8 @@ export default function ExcelPage() {
         {/* Preview */}
 
         {showPreview && (
-          <section className="mb-6 overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
-            <div className="border-b border-slate-100 px-5 py-4 sm:px-6">
+          <section className="mb-6 overflow-hidden rounded-3xl border border-[#E1E8F2] bg-white shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)]">
+            <div className="border-b border-[#EAF0F7] bg-[#F8FAFD] px-5 py-4 sm:px-6">
               <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                 <div>
                   <h2 className="text-base font-bold text-slate-900">
@@ -874,7 +874,7 @@ export default function ExcelPage() {
 
         {/* Export All Students */}
 
-        <section className="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <section className="mb-6 rounded-3xl border border-[#E1E8F2] bg-white p-5 shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)] sm:p-6">
           <div className="mb-5">
             <h2 className="text-base font-bold text-slate-900">
               تصدير الطلاب
@@ -900,7 +900,7 @@ export default function ExcelPage() {
                     setExportGroupId("");
                   }}
                   aria-label="فلترة التصدير حسب المدرس"
-                  className="h-11 w-full appearance-none rounded-xl border border-slate-200 bg-white px-3 pl-9 text-xs text-slate-700 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                  className="h-11 w-full appearance-none rounded-xl border border-[#E1E8F2] bg-white px-3 pl-9 text-xs text-slate-700 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                 >
                   <option value="">كل المدرسين</option>
 
@@ -930,7 +930,7 @@ export default function ExcelPage() {
                     setExportGroupId(event.target.value)
                   }
                   aria-label="فلترة التصدير حسب المجموعة"
-                  className="h-11 w-full appearance-none rounded-xl border border-slate-200 bg-white px-3 pl-9 text-xs text-slate-700 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+                  className="h-11 w-full appearance-none rounded-xl border border-[#E1E8F2] bg-white px-3 pl-9 text-xs text-slate-700 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
                 >
                   <option value="">كل المجموعات</option>
 
@@ -978,7 +978,7 @@ export default function ExcelPage() {
                 onClick={
                   handleExportAllStudents
                 }
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-xs font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-xs font-bold text-white transition hover:bg-[#1238C7] disabled:cursor-not-allowed disabled:bg-slate-300"
               >
                 <FiDownload size={15} />
 
@@ -994,7 +994,7 @@ export default function ExcelPage() {
 
         {/* Export Selected Student */}
 
-        <section className="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <section className="mb-6 rounded-3xl border border-[#E1E8F2] bg-white p-5 shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)] sm:p-6">
           <div className="mb-5">
             <h2 className="text-base font-bold text-slate-900">
               تصدير طالب محدد
@@ -1020,7 +1020,7 @@ export default function ExcelPage() {
                 setSelectedStudent(null);
               }}
               placeholder="ابحث باسم الطالب أو Student ID أو رقم ولي الأمر..."
-              className="h-11 w-full rounded-lg border border-slate-200 bg-white pr-10 pl-4 text-xs text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-teal-400 focus:ring-2 focus:ring-teal-50"
+              className="h-11 w-full rounded-xl border border-[#E1E8F2] bg-white pr-10 pl-4 text-xs text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-[#1748EF] focus:ring-2 focus:ring-[#EEF3FF]"
             />
           </div>
 
@@ -1057,12 +1057,12 @@ export default function ExcelPage() {
                         "flex w-full items-center justify-between gap-4 border-b border-slate-100 px-4 py-3 text-right transition last:border-0",
                         selectedStudent?.id ===
                         student.id
-                          ? "bg-teal-50"
+                          ? "bg-[#EEF3FF]"
                           : "hover:bg-slate-50",
                       ].join(" ")}
                     >
                       <div className="flex min-w-0 items-center gap-3">
-                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500">
+                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#EEF2F8] text-[#526482]">
                           <FiUser size={16} />
                         </div>
 
@@ -1088,9 +1088,9 @@ export default function ExcelPage() {
           )}
 
           {selectedStudent && (
-            <div className="mt-4 flex flex-col gap-4 rounded-xl border border-teal-100 bg-teal-50/60 p-4 sm:flex-row sm:items-center sm:justify-between">
+            <div className="mt-4 flex flex-col gap-4 rounded-2xl border border-[#DCE5FF] bg-[#EDF2FF]/60 p-4 sm:flex-row sm:items-center sm:justify-between">
               <div className="flex items-center gap-3">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-white text-teal-600">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#1748EF]">
                   <FiUser size={18} />
                 </div>
 
@@ -1112,7 +1112,7 @@ export default function ExcelPage() {
                 onClick={
                   handleExportSelectedStudent
                 }
-                className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-xs font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:bg-slate-300"
+                className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-xs font-semibold text-white transition hover:bg-[#123BD0] disabled:cursor-not-allowed disabled:bg-slate-300"
               >
                 <FiDownload size={15} />
                 تصدير بيانات الطالب
@@ -1123,7 +1123,7 @@ export default function ExcelPage() {
 
         {/* History */}
 
-        <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <section className="overflow-hidden rounded-3xl border border-[#E1E8F2] bg-white shadow-[0_18px_44px_-32px_rgba(16,39,91,0.3)]">
           <div className="border-b border-slate-100 px-5 py-4">
             <h2 className="text-sm font-bold text-slate-800">
               سجل الاستيراد
@@ -1251,7 +1251,7 @@ function ImportType({
       className={[
         "flex items-center gap-3 rounded-lg border p-4 text-right transition",
         active
-          ? "border-teal-200 bg-teal-50 text-teal-700"
+          ? "border-[#C8D5FF] bg-[#EEF3FF] text-[#1238C7]"
           : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50",
       ].join(" ")}
       aria-pressed={active}
@@ -1260,7 +1260,7 @@ function ImportType({
         className={[
           "flex h-10 w-10 shrink-0 items-center justify-center rounded-lg",
           active
-            ? "bg-white text-teal-600"
+            ? "bg-white text-[#1748EF]"
             : "bg-slate-100 text-slate-500",
         ].join(" ")}
       >

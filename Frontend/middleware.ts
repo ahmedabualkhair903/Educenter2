@@ -2,7 +2,14 @@ import { NextRequest, NextResponse } from "next/server";
 
 const AUTH_COOKIE = "manara-auth";
 
-const PUBLIC_PATHS = ["/login", "/register", "/parent-portal"];
+const PUBLIC_PATHS = [
+  "/",
+  "/login",
+  "/register",
+  "/parent-portal",
+  "/images/educenter-hero.png",
+  "/images/nB1w5is9AKQCaSU5X77jCYDld4ynjirQvsTeZX7v7EJn5Wd8fQ-sc3rlNcrP95coYUyeJf8tKDkwXmDBIqIeFg1PxU9n3FL5fopLHdriIaJFkDv3J4KMCYEkqFD8oC0T7cIJ-a-rWDuX1Fn5wRaTNqlK0n7vBVBlDPkAu-5rlpeScv.jfif",
+];
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;

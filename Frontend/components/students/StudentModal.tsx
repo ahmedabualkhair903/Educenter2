@@ -813,7 +813,7 @@ function StudentModalContent({
       >
         <div className="flex shrink-0 items-center justify-between border-b border-slate-100 px-5 py-4 sm:px-6">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-50 text-teal-600">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#EDF2FF] text-[#1748EF]">
               {isEdit ? (
                 <FiSave size={18} />
               ) : (
@@ -903,11 +903,11 @@ function StudentModalContent({
                   </Field>
                 ) : (
                   <div className="sm:col-span-2">
-                    <div className="flex items-start gap-2 rounded-xl border border-teal-100 bg-teal-50/60 px-3 py-2.5">
-                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-teal-100 text-[11px] font-bold text-teal-700">
+                    <div className="flex items-start gap-2 rounded-xl border border-[#DCE5FF] bg-[#EDF2FF]/60 px-3 py-2.5">
+                      <div className="mt-0.5 flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#DCE5FF] text-[11px] font-bold text-[#1748EF]">
                         ✓
                       </div>
-                      <p className="text-xs leading-5 text-teal-800">
+                      <p className="text-xs leading-5 text-[#10275B]">
                         سيتم توليد كود الطالب تلقائياً عند الحفظ (مثال: STU-2026-0001) — لا حاجة لإدخاله يدوياً.
                       </p>
                     </div>
@@ -1345,7 +1345,7 @@ function StudentModalContent({
                     disabled={
                       customFieldSaving
                     }
-                    className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-lg border border-teal-200 bg-teal-50 px-3 text-xs font-semibold text-teal-700 transition hover:border-teal-300 hover:bg-teal-100 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="inline-flex h-9 shrink-0 items-center gap-1.5 rounded-xl border border-[#CCD8FF] bg-[#EDF2FF] px-3 text-xs font-semibold text-[#1748EF] transition hover:border-[#AABEFF] hover:bg-[#E2E9FF] disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     <FiPlus size={14} />
                     إضافة خانة جديدة
@@ -1354,7 +1354,7 @@ function StudentModalContent({
               </div>
 
               {showAddCustomField && (
-                <div className="mb-5 rounded-xl border border-teal-100 bg-teal-50/40 p-4">
+                <div className="mb-5 rounded-xl border border-[#DCE5FF] bg-[#EDF2FF]/40 p-4">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <Field
                       label="اسم الخانة"
@@ -1445,7 +1445,7 @@ function StudentModalContent({
                           }),
                         )
                       }
-                      className="h-4 w-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500"
+                      className="h-4 w-4 rounded border-slate-300 text-[#1748EF] focus:ring-[#1748EF]"
                     />
 
                     <label
@@ -1515,7 +1515,7 @@ function StudentModalContent({
                           "select" &&
                           !newCustomField.options.trim())
                       }
-                      className="inline-flex h-9 items-center gap-1.5 rounded-lg bg-teal-600 px-3 text-xs font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
+                      className="inline-flex h-9 items-center gap-1.5 rounded-xl bg-[#1748EF] px-3 text-xs font-semibold text-white transition hover:bg-[#123BD0] disabled:cursor-not-allowed disabled:opacity-50"
                     >
                       <FiPlus size={13} />
 
@@ -1601,7 +1601,7 @@ function StudentModalContent({
                 }
                 placeholder="اكتب أي ملاحظات مهمة عن الطالب..."
                 rows={4}
-                className="w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+                className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
               />
             </section>
           </div>
@@ -1619,7 +1619,7 @@ function StudentModalContent({
             <button
               type="submit"
               disabled={submitting}
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#123BD0] active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-60"
             >
               {isEdit ? (
                 <FiSave size={15} />
@@ -1676,7 +1676,7 @@ function CustomFieldInput({
                   event.target.checked,
                 )
               }
-              className="h-4 w-4 rounded border-slate-300 text-teal-600 focus:ring-teal-500"
+              className="h-4 w-4 rounded border-slate-300 text-[#1748EF] focus:ring-[#1748EF]"
             />
 
             {field.label}
@@ -1738,7 +1738,7 @@ function CustomFieldInput({
               )
             }
             rows={3}
-            className="w-full resize-none rounded-lg border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+            className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
           />
         ) : (
           <input
@@ -1912,7 +1912,6 @@ function inputClass(
   return `h-10 w-full rounded-lg border bg-slate-50 px-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 ${
     error
       ? "border-red-300 focus:border-red-400 focus:ring-4 focus:ring-red-500/10"
-      : "border-slate-200 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+      : "border-slate-200 hover:border-slate-300 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
   }`;
 }
-

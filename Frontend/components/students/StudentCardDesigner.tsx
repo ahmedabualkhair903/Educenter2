@@ -126,7 +126,7 @@ const templatePreviewStyles: Record<
   },
   modern: {
     background: "#f8fafc",
-    accent: "#0f766e",
+    accent: "#1748EF",
   },
   minimal: {
     background: "#ffffff",
@@ -138,7 +138,7 @@ const templatePreviewStyles: Record<
   },
   center_branding: {
     background: "#ffffff",
-    accent: "#0f766e",
+    accent: "#1748EF",
   },
 };
 
@@ -919,7 +919,7 @@ export default function StudentCardDesigner({
             <div className="flex flex-wrap items-center gap-2">
               <Link
                 href={`/students/${student.id}`}
-                className="inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-teal-700"
+                className="inline-flex items-center gap-1 text-xs font-semibold text-slate-400 transition hover:text-[#123BD0]"
               >
                 <FiChevronLeft
                   size={14}
@@ -972,7 +972,7 @@ export default function StudentCardDesigner({
                   true,
                 )
               }
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 text-xs font-semibold text-slate-600 transition hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-xs font-semibold text-slate-600 transition hover:border-[#CCD8FF] hover:bg-[#EDF2FF] hover:text-[#1748EF]"
             >
               <FiSave size={15} />
               حفظ كقالب جديد
@@ -982,7 +982,7 @@ export default function StudentCardDesigner({
               type="button"
               onClick={handleSave}
               disabled={isSaving}
-              className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-xs font-bold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
+              className="inline-flex h-10 items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-4 text-xs font-bold text-white transition hover:bg-[#123BD0] disabled:cursor-not-allowed disabled:opacity-50"
             >
               <FiSave size={15} />
               {isSaving
@@ -1055,7 +1055,7 @@ export default function StudentCardDesigner({
                         }
                         className={`rounded-xl border p-3 transition ${
                           isSelected
-                            ? "border-teal-300 bg-teal-50/50 shadow-sm"
+                            ? "border-[#AABEFF] bg-[#EDF2FF]/50 shadow-sm"
                             : "border-slate-200 bg-white hover:border-slate-300"
                         }`}
                       >
@@ -1127,7 +1127,7 @@ export default function StudentCardDesigner({
                             disabled={
                               isApplyingTemplate
                             }
-                            className="rounded-lg bg-teal-600 px-2 py-2 text-[10px] font-bold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="rounded-lg bg-[#1748EF] px-2 py-2 text-[10px] font-bold text-white transition hover:bg-[#123BD0] disabled:cursor-not-allowed disabled:opacity-50"
                           >
                             Apply
                           </button>
@@ -1142,7 +1142,7 @@ export default function StudentCardDesigner({
                             disabled={
                               isApplyingTemplate
                             }
-                            className="rounded-lg border border-slate-200 bg-white px-2 py-2 text-[10px] font-bold text-slate-600 transition hover:border-teal-200 hover:bg-teal-50 hover:text-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
+                            className="rounded-lg border border-slate-200 bg-white px-2 py-2 text-[10px] font-bold text-slate-600 transition hover:border-[#CCD8FF] hover:bg-[#EDF2FF] hover:text-[#1748EF] disabled:cursor-not-allowed disabled:opacity-50"
                           >
                             Edit
                           </button>
@@ -1184,7 +1184,7 @@ export default function StudentCardDesigner({
                         className={`flex w-full items-center justify-between rounded-xl border px-3 py-3 text-right transition ${
                           selectedElementId ===
                           element.id
-                            ? "border-teal-200 bg-teal-50"
+                            ? "border-[#CCD8FF] bg-[#EDF2FF]"
                             : "border-slate-100 bg-slate-50/60 hover:border-slate-200 hover:bg-white"
                         }`}
                       >
@@ -1589,7 +1589,7 @@ export default function StudentCardDesigner({
                           ),
                         )
                       }
-                      className="w-full accent-teal-600"
+                      className="w-full accent-[#1748EF]"
                     />
 
                     <div className="mt-1 text-center text-[11px] text-slate-400">
@@ -1647,7 +1647,7 @@ export default function StudentCardDesigner({
                             className={`rounded-lg border px-2 py-2 text-[11px] font-semibold transition ${
                               selectedElement.fontWeight ===
                               value
-                                ? "border-teal-200 bg-teal-50 text-teal-700"
+                                ? "border-[#CCD8FF] bg-[#EDF2FF] text-[#1748EF]"
                                 : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
                             }`}
                           >
@@ -1861,7 +1861,7 @@ export default function StudentCardDesigner({
                       true,
                     )
                   }
-                  className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-lg border border-teal-100 bg-teal-50 text-xs font-bold text-teal-700 transition hover:bg-teal-100"
+                  className="inline-flex h-10 w-full items-center justify-center gap-2 rounded-xl border border-[#DCE5FF] bg-[#EDF2FF] text-xs font-bold text-[#1748EF] transition hover:bg-[#E2E9FF]"
                 >
                   <FiSave
                     size={15}
@@ -2023,7 +2023,7 @@ export default function StudentCardDesigner({
                   }
                   placeholder="مثال: قالب الطلاب المميز"
                   autoFocus
-                  className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-teal-400 focus:ring-2 focus:ring-teal-100"
+                  className="h-11 w-full rounded-xl border border-slate-200 bg-white px-3 text-xs font-semibold text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-[#1748EF] focus:ring-2 focus:ring-[#DCE5FF]"
                   onKeyDown={(
                     event,
                   ) => {
@@ -2060,7 +2060,7 @@ export default function StudentCardDesigner({
                     isSavingTemplate ||
                     !newTemplateName.trim()
                   }
-                  className="h-10 flex-1 rounded-lg bg-teal-600 text-xs font-bold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-50"
+                  className="h-10 flex-1 rounded-xl bg-[#1748EF] text-xs font-bold text-white transition hover:bg-[#123BD0] disabled:cursor-not-allowed disabled:opacity-50"
                 >
                   {isSavingTemplate
                     ? "جارٍ الحفظ..."
@@ -2114,7 +2114,7 @@ function DesignerCanvasElement({
     <div
       className={`absolute cursor-move select-none rounded-xl border transition ${
         selected
-          ? "border-teal-500 ring-2 ring-teal-500/20"
+          ? "border-[#1748EF] ring-2 ring-[#1748EF]/20"
           : "border-transparent hover:border-slate-300"
       }`}
       style={style}
@@ -2157,7 +2157,7 @@ function DesignerCanvasElement({
 
       {selected && (
         <div
-          className="absolute bottom-[-5px] left-[-5px] flex h-3 w-3 cursor-nwse items-center justify-center rounded-sm border border-white bg-teal-600 shadow-sm"
+          className="absolute bottom-[-5px] left-[-5px] flex h-3 w-3 cursor-nwse items-center justify-center rounded-sm border border-white bg-[#1748EF] shadow-sm"
           onPointerDown={
             onStartResize
           }
@@ -2595,7 +2595,7 @@ function TemplatePreviewModal({
           <button
             type="button"
             onClick={onApply}
-            className="h-10 rounded-lg bg-teal-600 px-5 text-xs font-bold text-white transition hover:bg-teal-700"
+            className="h-10 rounded-xl bg-[#1748EF] px-5 text-xs font-bold text-white transition hover:bg-[#123BD0]"
           >
             تطبيق القالب
           </button>
@@ -2740,7 +2740,7 @@ function PropertyNumber({
             ),
           )
         }
-        className="h-9 w-full rounded-lg border border-slate-200 bg-white px-2 text-center text-xs font-semibold text-slate-700 outline-none transition focus:border-teal-400 focus:ring-2 focus:ring-teal-100"
+        className="h-9 w-full rounded-lg border border-slate-200 bg-white px-2 text-center text-xs font-semibold text-slate-700 outline-none transition focus:border-[#1748EF] focus:ring-2 focus:ring-[#DCE5FF]"
       />
     </label>
   );
@@ -2764,7 +2764,7 @@ function AlignmentButton({
       title={label}
       className={`flex h-10 items-center justify-center rounded-lg border transition ${
         active
-          ? "border-teal-200 bg-teal-50 text-teal-700"
+          ? "border-[#CCD8FF] bg-[#EDF2FF] text-[#1748EF]"
           : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
       }`}
     >
@@ -2791,7 +2791,7 @@ function FormatButton({
       title={label}
       className={`flex h-10 items-center justify-center rounded-lg border transition ${
         active
-          ? "border-teal-200 bg-teal-50 text-teal-700"
+          ? "border-[#CCD8FF] bg-[#EDF2FF] text-[#1748EF]"
           : "border-slate-200 bg-white text-slate-500 hover:bg-slate-50"
       }`}
     >

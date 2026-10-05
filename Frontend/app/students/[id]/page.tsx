@@ -44,14 +44,16 @@ export default async function StudentProfilePage({
   ]);
 
   return (
-    <StudentProfile
-      student={student}
-      payments={payments}
-      grades={grades}
-      attendance={attendance}
-      messages={messages}
-      activities={activities}
-      exams={exams}
-    />
+    <div className="min-h-screen bg-[#F3F6FC] [&_main]:!bg-[#F3F6FC]">
+      <StudentProfile
+        student={student}
+        payments={payments}
+        grades={grades}
+        attendance={attendance}
+        messages={messages}
+        activities={activities}
+        exams={exams}
+      />
+    </div>
   );
 }

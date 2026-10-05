@@ -257,7 +257,7 @@ export default function Sidebar({
         id="dashboard-sidebar"
         aria-label="القائمة الرئيسية"
         className={[
-          "flex w-[280px] shrink-0 flex-col border-l border-slate-200 bg-white",
+          "educenter-sidebar flex w-[272px] shrink-0 flex-col border-l border-white/10 bg-[#0A1B49]",
           "fixed inset-y-0 right-0 z-50 transition-transform duration-300",
           "lg:static lg:z-auto lg:h-screen lg:translate-x-0",
           mobileOpen
@@ -266,14 +266,14 @@ export default function Sidebar({
         ].join(" ")}
       >
         {/* Logo */}
-        <div className="flex h-20 shrink-0 items-center justify-between border-b border-slate-100 px-5">
+        <div className="flex h-20 shrink-0 items-center justify-between border-b border-white/10 px-5">
           <Link
             href="/dashboard"
             onClick={onClose}
-            aria-label="مَنارة - الرئيسية"
+            aria-label="EduCenter - الرئيسية"
             className="flex items-center gap-3"
           >
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-teal-600 text-white shadow-sm">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#315FF1] text-white shadow-sm shadow-[#071538]/30">
               <LuGraduationCap
                 size={22}
                 strokeWidth={2}
@@ -282,12 +282,12 @@ export default function Sidebar({
             </div>
 
             <div>
-              <p className="text-xl font-extrabold tracking-tight text-slate-900">
-                مَنارة
+              <p className="text-xl font-extrabold tracking-tight text-white">
+                EduCenter
               </p>
 
-              <p className="mt-0.5 text-[10px] font-medium text-slate-400">
-                نظام إدارة المركز
+              <p className="mt-0.5 text-[10px] font-medium text-white/45">
+                منصة إدارة التعليم
               </p>
             </div>
           </Link>
@@ -295,7 +295,7 @@ export default function Sidebar({
           <button
             type="button"
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 focus:outline-none focus:ring-2 focus:ring-teal-100 lg:hidden"
+            className="flex h-8 w-8 items-center justify-center rounded-xl text-white/45 transition hover:bg-white/10 hover:text-white/90 focus:outline-none focus:ring-2 focus:ring-[#DCE5FF] lg:hidden"
             aria-label="إغلاق القائمة"
           >
             <FiX size={18} />
@@ -351,21 +351,21 @@ export default function Sidebar({
         </nav>
 
         {/* User / Logout */}
-        <div className="shrink-0 border-t border-slate-100 p-3">
-          <div className="mb-2 flex items-center gap-3 rounded-lg bg-slate-50 p-3">
+        <div className="shrink-0 border-t border-white/10 p-3">
+          <div className="mb-2 flex items-center gap-3 rounded-lg bg-white/5 p-3">
             <div
-              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-teal-100 text-sm font-bold text-teal-700"
+              className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#E6ECFF] text-sm font-bold text-[#1748EF]"
               aria-hidden="true"
             >
               م
             </div>
 
             <div className="min-w-0 flex-1">
-              <p className="truncate text-xs font-bold text-slate-700">
+              <p className="truncate text-xs font-bold text-white/90">
                 مدير المركز
               </p>
 
-              <p className="mt-0.5 truncate text-[10px] text-slate-400">
+              <p className="mt-0.5 truncate text-[10px] text-white/45">
                 مسؤول النظام
               </p>
             </div>
@@ -374,9 +374,9 @@ export default function Sidebar({
           <button
             type="button"
             onClick={handleLogout}
-            className="group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-500 transition hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-100"
+            className="group flex w-full items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-white/60 transition hover:bg-red-50 hover:text-red-600 focus:outline-none focus:ring-2 focus:ring-red-100"
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-lg transition group-hover:bg-white">
+            <span className="flex h-8 w-8 items-center justify-center rounded-xl transition group-hover:bg-white/10">
               <FiLogOut size={17} />
             </span>
 
@@ -464,16 +464,16 @@ function SidebarLink({
       className={[
         "group flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
         active
-          ? "bg-teal-50 text-teal-700"
-          : "text-slate-500 hover:bg-slate-50 hover:text-slate-800",
+          ? "bg-[#315FF1]/20 text-[#C1D1FF]"
+          : "text-white/60 hover:bg-white/5 hover:text-white",
       ].join(" ")}
     >
       <span
         className={[
           "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition",
           active
-            ? "bg-white text-teal-600 shadow-sm"
-            : "bg-transparent text-slate-400 group-hover:text-slate-600",
+            ? "bg-[#1748EF] text-white shadow-sm shadow-[#071538]/30"
+            : "bg-transparent text-white/45 group-hover:text-white/75",
         ].join(" ")}
       >
         {item.icon}
@@ -485,7 +485,7 @@ function SidebarLink({
 
       {active && (
         <span
-          className="h-1.5 w-1.5 rounded-full bg-teal-600"
+          className="h-1.5 w-1.5 rounded-full bg-[#7EA2FF]"
           aria-hidden="true"
         />
       )}
@@ -527,8 +527,8 @@ function SidebarGroup({
         className={[
           "flex items-center rounded-lg transition-all",
           active
-            ? "bg-teal-50/70"
-            : "hover:bg-slate-50",
+            ? "bg-[#315FF1]/20"
+            : "hover:bg-white/5",
         ].join(" ")}
       >
         {item.href ? (
@@ -547,16 +547,16 @@ function SidebarGroup({
             className={[
               "group flex min-w-0 flex-1 items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium transition-all",
               active
-                ? "text-teal-700"
-                : "text-slate-500 hover:text-slate-800",
+                ? "text-[#C1D1FF]"
+                : "text-white/60 hover:text-white",
             ].join(" ")}
           >
             <span
               className={[
                 "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition",
                 active
-                  ? "bg-white text-teal-600 shadow-sm"
-                  : "bg-transparent text-slate-400 group-hover:text-slate-600",
+                  ? "bg-[#1748EF] text-white shadow-sm shadow-[#071538]/30"
+                  : "bg-transparent text-white/45 group-hover:text-white/75",
               ].join(" ")}
             >
               {item.icon}
@@ -573,16 +573,16 @@ function SidebarGroup({
             className={[
               "group flex min-w-0 flex-1 items-center gap-3 rounded-lg px-3 py-2.5 text-right text-sm font-medium transition-all",
               active
-                ? "text-teal-700"
-                : "text-slate-500 hover:text-slate-800",
+                ? "text-[#C1D1FF]"
+                : "text-white/60 hover:text-white",
             ].join(" ")}
           >
             <span
               className={[
                 "flex h-8 w-8 shrink-0 items-center justify-center rounded-lg transition",
                 active
-                  ? "bg-white text-teal-600 shadow-sm"
-                  : "bg-transparent text-slate-400 group-hover:text-slate-600",
+                  ? "bg-[#1748EF] text-white shadow-sm shadow-[#071538]/30"
+                  : "bg-transparent text-white/45 group-hover:text-white/75",
               ].join(" ")}
             >
               {item.icon}
@@ -597,7 +597,7 @@ function SidebarGroup({
         <button
           type="button"
           onClick={handleToggle}
-          className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-slate-400 transition hover:bg-white hover:text-slate-700"
+          className="ml-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg text-white/45 transition hover:bg-white/10 hover:text-white/90"
           aria-label={
             open
               ? `إغلاق قائمة ${item.label}`
@@ -619,7 +619,7 @@ function SidebarGroup({
 
       {open &&
         visibleChildren.length > 0 && (
-          <div className="mr-5 mt-1 space-y-1 border-r border-slate-100 pr-3">
+          <div className="mr-5 mt-1 space-y-1 border-r border-white/10 pr-3">
             {visibleChildren.map(
               (child) => (
                 <SidebarSubItem
@@ -665,16 +665,16 @@ function SidebarSubItem({
       className={[
         "group flex items-center gap-2 rounded-lg px-3 py-2 text-xs font-medium transition-all",
         active
-          ? "bg-teal-50 text-teal-700"
-          : "text-slate-500 hover:bg-slate-50 hover:text-slate-800",
+          ? "bg-[#315FF1]/20 text-[#C1D1FF]"
+          : "text-white/60 hover:bg-white/5 hover:text-white",
       ].join(" ")}
     >
       <span
         className={[
           "flex h-7 w-7 shrink-0 items-center justify-center rounded-md",
           active
-            ? "bg-white text-teal-600 shadow-sm"
-            : "text-slate-400 group-hover:text-slate-600",
+            ? "bg-[#1748EF] text-white shadow-sm shadow-[#071538]/30"
+            : "text-white/45 group-hover:text-white/75",
         ].join(" ")}
       >
         {item.icon}
@@ -686,7 +686,7 @@ function SidebarSubItem({
 
       {active && (
         <span
-          className="h-1.5 w-1.5 rounded-full bg-teal-600"
+          className="h-1.5 w-1.5 rounded-full bg-[#7EA2FF]"
           aria-hidden="true"
         />
       )}
@@ -703,7 +703,7 @@ function NavSection({
 }) {
   return (
     <div className="mb-6">
-      <p className="mb-2 px-3 text-[10px] font-bold tracking-wide text-slate-400">
+      <p className="mb-2 px-3 text-[10px] font-bold tracking-wide text-white/45">
         {title}
       </p>
 

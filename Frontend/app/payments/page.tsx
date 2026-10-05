@@ -1,4 +1,3 @@
-
 "use client";
 
 import {
@@ -496,26 +495,31 @@ export default function PaymentsPage() {
   return (
     <main
       dir="rtl"
-      className="min-h-screen bg-slate-50"
+      className="min-h-screen bg-[#F3F6FB] text-[#10275B]"
     >
-      <div className="mx-auto max-w-[1600px] p-4 sm:p-6 lg:p-8">
+      <div className="mx-auto max-w-[1600px] px-4 py-5 sm:px-6 sm:py-7 lg:px-8 lg:py-8">
         {/* Header */}
 
-        <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+        <div className="mb-6 flex flex-col gap-5 rounded-2xl border border-[#DCE5F2] bg-gradient-to-l from-[#EAF0FF] via-white to-white p-5 shadow-sm sm:flex-row sm:items-center sm:justify-between sm:p-7">
           <div>
-            <div className="mb-2 flex items-center gap-2 text-xs font-medium text-slate-400">
+            <div className="mb-3 flex items-center gap-2 text-xs font-semibold text-slate-400">
               <span>الرئيسية</span>
               <span>/</span>
-              <span className="text-teal-600">
+              <span className="text-[#1748EF]">
                 المدفوعات
               </span>
             </div>
 
-            <h1 className="text-2xl font-bold tracking-tight text-slate-900">
+            <div className="mb-2 inline-flex items-center gap-2 rounded-full border border-[#D6E0F4] bg-white/80 px-3 py-1 text-[11px] font-bold text-[#10275B]">
+              <FiCreditCard size={13} className="text-[#1748EF]" />
+              الإدارة المالية
+            </div>
+
+            <h1 className="text-2xl font-bold tracking-tight text-[#10275B] sm:text-3xl">
               المدفوعات والتحصيل
             </h1>
 
-            <p className="mt-1 text-sm text-slate-500">
+            <p className="mt-2 max-w-2xl text-sm leading-6 text-slate-500">
               إدارة مدفوعات الطلاب ومتابعة المستحقات والمبالغ المتبقية.
             </p>
           </div>
@@ -523,7 +527,7 @@ export default function PaymentsPage() {
           <button
             type="button"
             onClick={() => openAddModal()}
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-lg bg-teal-600 px-4 text-sm font-semibold text-white shadow-sm transition hover:bg-teal-700 active:scale-[0.98]"
+            className="inline-flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#1748EF] px-5 text-sm font-bold text-white shadow-[0_8px_20px_rgba(23,72,239,0.18)] transition hover:bg-[#10275B] active:scale-[0.98] sm:w-auto"
           >
             <FiPlus size={17} />
             تسجيل دفعة
@@ -532,7 +536,7 @@ export default function PaymentsPage() {
 
         {/* Stats */}
 
-        <section className="mb-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <section aria-label="ملخص مالي" className="mb-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           <PaymentStat
             icon={<FiDollarSign size={19} />}
             label="إجمالي المستحق"
@@ -558,13 +562,13 @@ export default function PaymentsPage() {
             icon={<FiUser size={19} />}
             label="عمليات الدفع"
             value={payments.length}
-            valueClass="text-teal-600"
+            valueClass="text-[#1748EF]"
           />
         </section>
 
         {/* Status Summary */}
 
-        <section className="mb-6 grid gap-3 sm:grid-cols-3">
+        <section aria-label="حالة المستحقات" className="mb-6 grid gap-3 sm:grid-cols-3">
           <PaymentSummary
             label="مدفوعة بالكامل"
             value={paidCount}
@@ -589,10 +593,10 @@ export default function PaymentsPage() {
 
         {/* Main Card */}
 
-        <section className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+        <section className="overflow-hidden rounded-2xl border border-[#DCE5F2] bg-white shadow-sm">
           {/* Filters */}
 
-          <div className="border-b border-slate-100 p-4 sm:p-5">
+          <div className="border-b border-[#E8EDF5] bg-[#FAFBFE] p-4 sm:p-5">
             <div className="flex flex-col gap-3 lg:flex-row">
               <div className="relative flex-1">
                 <FiSearch
@@ -607,7 +611,7 @@ export default function PaymentsPage() {
                     setSearch(event.target.value)
                   }
                   placeholder="ابحث باسم الطالب أو رقم الطالب أو رقم العملية..."
-                  className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-teal-500 focus:bg-white focus:ring-4 focus:ring-teal-500/10"
+                  className="h-10 w-full rounded-lg border border-slate-200 bg-slate-50 pr-9 pl-3 text-sm text-slate-700 outline-none transition placeholder:text-slate-400 hover:border-slate-300 focus:border-[#1748EF] focus:bg-white focus:ring-4 focus:ring-[#1748EF]/10"
                 />
               </div>
 
@@ -627,7 +631,7 @@ export default function PaymentsPage() {
 
           {/* Results */}
 
-          <div className="border-b border-slate-100 px-5 py-3">
+          <div className="border-b border-[#E8EDF5] px-5 py-3">
             <p className="text-xs text-slate-400">
               عرض{" "}
               <span className="font-semibold text-slate-600">
@@ -686,7 +690,7 @@ export default function PaymentsPage() {
                     >
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-3">
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-teal-50 text-xs font-bold text-teal-700">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#EEF3FF] text-xs font-bold text-[#10275B]">
                             {getInitials(
                               student.name,
                             )}
@@ -777,7 +781,7 @@ export default function PaymentsPage() {
                                 student,
                               )
                             }
-                            className="flex h-8 w-8 items-center justify-center rounded-md text-slate-400 transition hover:bg-teal-50 hover:text-teal-600"
+                            className="flex h-8 w-8 items-center justify-center rounded-md text-slate-400 transition hover:bg-[#EEF3FF] hover:text-[#1748EF]"
                             title="كشف الحساب"
                             aria-label={`كشف حساب ${student.name}`}
                           >
@@ -863,7 +867,7 @@ export default function PaymentsPage() {
                 السابق
               </button>
 
-              <span className="flex h-8 min-w-8 items-center justify-center rounded-md bg-teal-600 px-2 text-xs font-semibold text-white">
+              <span className="flex h-8 min-w-8 items-center justify-center rounded-md bg-[#1748EF] px-2 text-xs font-semibold text-white">
                 1
               </span>
 
@@ -933,7 +937,7 @@ function PaymentStat({
   valueClass: string;
 }) {
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+    <div className="rounded-2xl border border-[#DCE5F2] bg-white p-5 shadow-sm">
       <div className="flex items-center justify-between">
         <div>
           <p className="text-sm text-slate-500">
@@ -947,7 +951,7 @@ function PaymentStat({
           </p>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal-50 text-teal-600">
+        <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#EEF3FF] text-[#1748EF]">
           {icon}
         </div>
       </div>
@@ -1047,7 +1051,7 @@ function PaymentFilter<T extends string>({
           onChange(event.target.value as T)
         }
         aria-label={label}
-        className="h-10 min-w-40 appearance-none rounded-lg border border-slate-200 bg-white px-3 pl-9 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-teal-500 focus:ring-4 focus:ring-teal-500/10"
+        className="h-11 min-w-40 appearance-none rounded-xl border border-slate-200 bg-white px-3 pl-9 text-sm text-slate-600 outline-none transition hover:border-slate-300 focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"
       >
         {options.map((option) => (
           <option
@@ -1458,7 +1462,7 @@ function PaymentModal({
             type="button"
             onClick={() => void handleSubmit()}
             disabled={saving}
-            className="h-10 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700 disabled:cursor-not-allowed disabled:opacity-60"
+            className="h-10 rounded-lg bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#10275B] disabled:cursor-not-allowed disabled:opacity-60"
           >
             {saving
               ? "جاري الحفظ..."
@@ -1560,7 +1564,7 @@ function StudentStatementModal({
 
         <div className="px-5 py-5 sm:px-6">
           <div className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-teal-50 text-sm font-bold text-teal-700">
+            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#EEF3FF] text-sm font-bold text-[#10275B]">
               {getInitials(student.name)}
             </div>
 
@@ -1719,7 +1723,7 @@ function StudentStatementModal({
             onClick={() =>
               onAddPayment(student.id)
             }
-            className="inline-flex h-10 items-center gap-2 rounded-lg bg-teal-600 px-5 text-sm font-semibold text-white transition hover:bg-teal-700"
+            className="inline-flex h-10 items-center gap-2 rounded-lg bg-[#1748EF] px-5 text-sm font-semibold text-white transition hover:bg-[#10275B]"
           >
             <FiPlus size={15} />
             تسجيل دفعة
