@@ -4,7 +4,6 @@
 import Image from "next/image";
 import { FormEvent, useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import {
   FiArrowLeft,
   FiEye,
@@ -17,8 +16,6 @@ import {
 import { LuGraduationCap } from "react-icons/lu";
 
 export default function RegisterPage() {
-  const router = useRouter();
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -29,18 +26,18 @@ export default function RegisterPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
 
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [notice, setNotice] = useState("");
 
   const clearError = () => {
-    if (error) {
-      setError("");
-    }
+    if (error) setError("");
+    if (notice) setNotice("");
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setError("");
+    setNotice("");
 
     if (!name.trim()) {
       setError("من فضلك أدخل الاسم بالكامل.");
@@ -77,9 +74,8 @@ export default function RegisterPage() {
       return;
     }
 
-    // Frontend-only mode: validate the form without creating an account via API.
-    setLoading(false);
-    router.replace("/login");
+    // Frontend-only mode: validate fields without sending data or creating an account.
+    setNotice("تم التحقق من البيانات بنجاح. إنشاء الحساب الفعلي غير متاح لأن الصفحة تعمل بدون Backend.");
   };
 
   return (
@@ -373,7 +369,7 @@ export default function RegisterPage() {
               </div>
 
               {/* Error */}
-              {error && (
+              {notice && <div role="status" className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-xs font-semibold leading-5 text-blue-700">{notice}</div>}{error && (
                 <div
                   role="alert"
                   className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-sm leading-6 text-red-600"
