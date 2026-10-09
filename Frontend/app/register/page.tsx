@@ -16,9 +16,6 @@ import {
 } from "react-icons/fi";
 import { LuGraduationCap } from "react-icons/lu";
 
-import { api } from "@/lib/api";
-import { login } from "@/lib/auth";
-
 export default function RegisterPage() {
   const router = useRouter();
 
@@ -80,26 +77,9 @@ export default function RegisterPage() {
       return;
     }
 
-    setLoading(true);
-
-    try {
-      await api.post("/auth/register", {
-        name: name.trim(),
-        email: email.trim(),
-        phone: phone.trim(),
-        password: password.trim(),
-      });
-
-      await login(email.trim(), password.trim());
-      router.replace("/dashboard");
-    } catch (err: unknown) {
-      setLoading(false);
-      setError(
-        err instanceof Error
-          ? err.message
-          : "حدث خطأ أثناء إنشاء الحساب. حاول مرة أخرى.",
-      );
-    }
+    // Frontend-only mode: validate the form without creating an account via API.
+    setLoading(false);
+    router.replace("/login");
   };
 
   return (
