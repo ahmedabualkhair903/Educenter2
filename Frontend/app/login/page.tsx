@@ -4,7 +4,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FormEvent, useState } from "react";
-import { useRouter } from "next/navigation";
 
 import {
   FiBookOpen,
@@ -14,39 +13,18 @@ import {
   FiMail,
 } from "react-icons/fi";
 
-const getRedirectPath = (): string => {
-  const params = new URLSearchParams(
-    window.location.search,
-  );
-
-  const redirect =
-    params.get("redirect") ??
-    "/dashboard";
-
-  if (
-    !redirect.startsWith("/") ||
-    redirect.startsWith("//") ||
-    redirect.includes(":")
-  ) {
-    return "/dashboard";
-  }
-
-  return redirect;
-};
-
 export default function LoginPage() {
-  const router = useRouter();
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [notice, setNotice] = useState("");
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     setError("");
+    setNotice("");
 
     if (!email.trim()) {
       setError("من فضلك أدخل اسم المستخدم أو البريد الإلكتروني.");
@@ -58,10 +36,8 @@ export default function LoginPage() {
       return;
     }
 
-    // Frontend-only mode: no API or authentication request is made.
-    // This validates the form only; protected pages still require real authentication.
-    setLoading(false);
-    setError("تم التحقق من الحقول. تسجيل الدخول الفعلي غير متاح في وضع الواجهة فقط.");
+    // Frontend-only mode: this validates fields but does not authenticate a user.
+    setNotice("تم التحقق من الحقول بنجاح. تسجيل الدخول الفعلي غير متاح لأن الصفحة تعمل بدون Backend.");
   };
 
   return (
@@ -105,10 +81,10 @@ export default function LoginPage() {
               <p className="mt-2 text-sm leading-6 text-slate-500">سجّل الدخول للوصول إلى لوحة التحكم الخاصة بك.</p>
             </div>
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div><label htmlFor="email" className="mb-2 block text-sm font-bold text-slate-700">اسم المستخدم أو البريد</label><div className="relative"><FiMail size={17} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"/><input id="email" type="text" value={email} onChange={(e)=>{setEmail(e.target.value);if(error)setError("")}} placeholder="admin" autoComplete="username" className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-4 text-sm outline-none transition focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10" /></div></div>
+              <div><label htmlFor="email" className="mb-2 block text-sm font-bold text-slate-700">اسم المستخدم أو البريد</label><div className="relative"><FiMail size={17} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"/><input id="email" type="text" value={email} onChange={(e)=>{setEmail(e.target.value);if(error)setError("");if(notice)setNotice("")}} placeholder="admin" autoComplete="username" className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-4 text-sm outline-none transition focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10" /></div></div>
               <div><div className="mb-2 flex items-center justify-between"><label htmlFor="password" className="text-sm font-bold text-slate-700">كلمة المرور</label><button type="button" className="text-[11px] font-bold text-[#1748EF]">نسيت كلمة المرور؟</button></div><div className="relative"><FiLock size={17} className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-slate-400"/><input id="password" type={showPassword?"text":"password"} value={password} onChange={(e)=>{setPassword(e.target.value);if(error)setError("")}} placeholder="أدخل كلمة المرور" autoComplete="current-password" className="h-12 w-full rounded-xl border border-slate-200 bg-white pr-10 pl-11 text-sm outline-none transition focus:border-[#1748EF] focus:ring-4 focus:ring-[#1748EF]/10"/><button type="button" onClick={()=>setShowPassword(v=>!v)} className="absolute left-2 top-1/2 grid h-8 w-8 -translate-y-1/2 place-items-center rounded-lg text-slate-400 hover:bg-slate-50">{showPassword?<FiEyeOff size={16}/>:<FiEye size={16}/>}</button></div></div>
-              {error && <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-xs font-semibold leading-5 text-red-600">{error}</div>}
-              <button type="submit" disabled={loading} className="h-12 w-full rounded-xl bg-[#1748EF] text-sm font-bold text-white shadow-[0_10px_24px_rgba(23,72,239,.2)] transition hover:bg-[#123BD0] disabled:opacity-60">{loading?"جاري تسجيل الدخول...":"تسجيل الدخول"}</button>
+              {error && <div className="rounded-xl border border-red-100 bg-red-50 px-4 py-3 text-xs font-semibold leading-5 text-red-600">{error}</div>}{notice && <div role="status" className="rounded-xl border border-blue-100 bg-blue-50 px-4 py-3 text-xs font-semibold leading-5 text-blue-700">{notice}</div>}
+              <button type="submit" className="h-12 w-full rounded-xl bg-[#1748EF] text-sm font-bold text-white shadow-[0_10px_24px_rgba(23,72,239,.2)] transition hover:bg-[#123BD0]">تسجيل الدخول</button>
               <div className="flex items-center gap-3"><div className="h-px flex-1 bg-slate-200"/><span className="text-[10px] text-slate-400">أو سجل الدخول باستخدام</span><div className="h-px flex-1 bg-slate-200"/></div>
               <div className="grid grid-cols-2 gap-3"><button type="button" className="h-11 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-600">Google</button><button type="button" className="h-11 rounded-xl border border-slate-200 bg-white text-xs font-bold text-slate-600">Microsoft</button></div>
               <p className="pt-2 text-center text-xs text-slate-400">ليس لديك حساب؟ <Link href="/register" className="font-bold text-[#1748EF]">إنشاء حساب جديد</Link></p>
