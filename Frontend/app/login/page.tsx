@@ -14,8 +14,6 @@ import {
   FiMail,
 } from "react-icons/fi";
 
-import { login } from "@/lib/auth";
-
 const getRedirectPath = (): string => {
   const params = new URLSearchParams(
     window.location.search,
@@ -60,19 +58,10 @@ export default function LoginPage() {
       return;
     }
 
-    setLoading(true);
-
-    try {
-      await login(email, password);
-      router.replace(getRedirectPath());
-    } catch (err: unknown) {
-      setLoading(false);
-      setError(
-        err instanceof Error
-          ? err.message
-          : "بيانات تسجيل الدخول غير صحيحة. حاول مرة أخرى.",
-      );
-    }
+    // Frontend-only mode: no API or authentication request is made.
+    // This validates the form only; protected pages still require real authentication.
+    setLoading(false);
+    setError("تم التحقق من الحقول. تسجيل الدخول الفعلي غير متاح في وضع الواجهة فقط.");
   };
 
   return (
